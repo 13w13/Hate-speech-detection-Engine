@@ -10,6 +10,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 #default page of our web-app
 @app.route('/')
 def home():
+    #print('Hello world!')
     return render_template('index.html')
 
 #To use the predict button in our web-app
@@ -18,13 +19,15 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    int_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+    int_features = [str(x) for x in request.form.values()]
+    
+    return(int_features)
 
-    output = round(prediction[0], 2)
+    #final_features = [np.array(int_features)]
+    #prediction = model.predict(final_features)
 
-    return render_template('index.html', prediction_text='CO2 Emission of the vehicle is :{}'.format(output))
+    #output = round(prediction[0], 2)
+    #return render_template('index.html', prediction_text='CO2 Emission of the vehicle is :{}'.format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)
