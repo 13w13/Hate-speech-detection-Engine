@@ -66,7 +66,7 @@ def predict():
 
     #output = round(prediction[0], 2)
     output = "toto"
-    return render_template('index.html', prediction_text='CO2 Emission of the vehicle is :{}'.format(output))
+    return render_template('index.html', prediction_text='Is it an hate message? :{}'.format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)
