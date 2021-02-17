@@ -1,3 +1,29 @@
+#import libraries 
+'''
+import sys
+import fastai
+from fastai.callbacks import TrainingPhase, GeneralScheduler
+import fastprogress # a remettre
+from fastprogress import master_bar, progress_bar #a remettre 
+import numpy as np
+import pandas as pd
+import os
+import gc
+import random
+from tqdm._tqdm_notebook import tqdm_notebook as tqdm
+from keras.preprocessing import text, sequence
+import torch
+from torch import nn
+from torch.utils import data
+from torch.nn import functional as F
+import torch.utils.data
+from tqdm import tqdms
+from pytorch_pretrained_bert import BertTokenizer, BertForSequenceClassification, BertAdam
+from pytorch_pretrained_bert import BertConfig
+from nltk.tokenize.treebank import TreebankWordTokenizer
+from gensim.models import KeyedVectors
+'''
+
 #import libraries
 import logging
 import numpy as np
@@ -8,7 +34,6 @@ import pickle
 app = Flask(__name__)
 
 model = pickle.load(open('model.pkl', 'rb')) #changer par le bin
-
 
 handler = logging.FileHandler("test.log")  # Create the file logger
 app.logger.addHandler(handler)             # Add it to the built-in logger
@@ -25,13 +50,14 @@ def home():
 #def button_clicked():
 #    print('Hello world!')
 #    return redirect('/')
-
 def predict():
     '''
     For rendering results on HTML GUI
     '''
-    int_features = [str(x) for x in request.form.values()]
-    app.logger.info(int_features)
+    tweet = [str(x) for x in request.form.values()]
+    app.logger.info(tweet)
+
+    ##faire les memes operations de test que dans le notebook 
 
     #return(int_features)
 
