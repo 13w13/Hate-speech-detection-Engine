@@ -2,7 +2,7 @@
   <style type="text/css">
   @import url(https://fonts.googleapis.com/css?family=Open+Sans); 
 
-
+ 
 .btn{
   background-color:rgb(74, 182, 74); /* Green */
   border: none;
@@ -46,9 +46,11 @@ body {
 	top: 40%;
 	left: 50%;
 	margin: -150px 0 0 -150px;
-	width:400px;
+	width:800px;
 	height:400px;
 }
+
+
 
 .login h1 { 
   color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:center; 
@@ -60,6 +62,13 @@ body {
   font-size: 25px;
   font-weight: lighter;
   
+}
+
+.login h5 {
+  color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:left; 
+  font-size: 25px;
+  font-weight: lighter
+  font-family: 'Gotham'
 }
 
 input {
@@ -83,6 +92,12 @@ input {
 }
 input:focus { box-shadow: inset 0 -5px 45px #00acee(100,100,100,0.4), 0 1px 1px #00acee(255,255,255,0.2); }
 
+.content img{
+  margin-top:50px;
+margin-left:100px;
+vertical-align: middle;
+
+}
 
   </style>
 </head>
@@ -98,13 +113,21 @@ input:focus { box-shadow: inset 0 -5px 45px #00acee(100,100,100,0.4), 0 1px 1px 
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+<!-- <link re
+  l="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
 
 
 </head>
 
 <body>
  <div class="login">
+  <img 
+  class="content" 
+  src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
+  alt="image" 
+  width="150" 
+  height="150">
+
 	<h1>Tweet Analyser </h1>
      <h4> Enter the tweet you want to analyse :</h4>
 
@@ -114,15 +137,21 @@ input:focus { box-shadow: inset 0 -5px 45px #00acee(100,100,100,0.4), 0 1px 1px 
       <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
       <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
       -->
-		  <input type="text" name="fuel" placeholder="Write some words..." required="required" />
+		  <input type="text" name="fuel" placeholder="Enter the message ... " required="required" />
 
       <button type="submit" class="btn">Predict</button>
     </form>
+   
+      <footer class= "footer" >
+        
+            <h5>Links</h5>
 
    <br>
-   <br>
-   {{ prediction_text }}
 
+  
+
+
+  
  </div>
 
 
