@@ -7,14 +7,16 @@ pickle4==0.0.1
 sklearn==0.0
 
 tqdm==4.41.1
-Keras-Preprocessing==1.1.2
+#Keras==2.4.3
+#Keras-Preprocessing==1.1.2
 nltk==3.2.5
 gensim==3.6.0
 fastprogress==1.0.0
 
-#fastai==1.0.61
-#pytorch-pretrained-bert==0.6.2
-#torch==1.7.0
+torch==1.7.1
+
+fastai==1.0.61
+pytorch-pretrained-bert==0.6.2
 
 ##sys
 ##gc
