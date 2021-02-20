@@ -219,7 +219,7 @@ def predict():
     prob_prediction=predict_words(tweet[0])
 
     if prob_prediction >= 0.6: 
-        prediction = "Injuries "
+        prediction = "Insult "
     elif prob_prediction >= 0.4 and prob_prediction < 0.6: 
         prediction = "Neutral "
     else:
