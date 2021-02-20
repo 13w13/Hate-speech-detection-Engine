@@ -18,7 +18,7 @@
   margin: 20px ;
   cursor: pointer;
 } 
-.btn:hover { background-color: #f3f0bf; box-shadow: 0 12px 16px 0 rgba(199, 189, 189, 0.24),0 17px 50px 0 rgba(155, 22, 22, 0.19); }
+.btn:hover { background-color: #65f14c; box-shadow: 0 12px 16px 0 rgba(199, 189, 189, 0.24),0 17px 50px 0 rgba(155, 22, 22, 0.19); }
 
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
@@ -46,29 +46,29 @@ body {
 	top: 40%;
 	left: 50%;
 	margin: -150px 0 0 -150px;
-	width:800px;
-	height:400px;
+	width:400px;
+	height:100px;
 }
 
 
 
 .login h1 { 
   color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:center; 
-  font-size: 53px;
+  font-size: 50px;
 }
 
 .login h4 { 
   color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:center; 
-  font-size: 25px;
+  font-size: 20px;
   font-weight: lighter;
   
 }
 
 .login h5 {
   color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:left; 
-  font-size: 25px;
-  font-weight: lighter
-  font-family: 'Gotham'
+  font-size: 20px;
+  font-weight: lighter;
+  font-family: 'Gotham';
 }
 
 input {
@@ -96,7 +96,61 @@ input:focus { box-shadow: inset 0 -5px 45px #00acee(100,100,100,0.4), 0 1px 1px 
   margin-top:50px;
 margin-left:100px;
 vertical-align: middle;
+}
 
+
+
+/* Style the links inside the sidenav */
+#mySidenav a {
+  position: absolute; /* Position them relative to the browser window */
+  left: -70px; /* Position them outside of the screen */
+  transition: 0.3s; /* Add transition on hover */
+  padding: 30px; /* 15px padding */
+  width: 350px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 25px; /* Increase font size */
+  font-family: 'Gotham' ;
+  color: white; /* White text color */
+  border-radius: 0 10px 15px 0; /* Rounded corners on the top right and bottom right side */
+  border-radius: 10px 100px / 120px;
+
+}
+
+#mySidenav a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+/* The about link: 20px from the top with a green background */
+#project {
+  top: 10px;
+  background-color: #ee1818; /* Red */
+}
+
+#team {
+  top: 80px;
+  background-color: #f3a515; /* Orange */
+}
+
+#analyser {
+  top: 140px;
+  background-color: #ebe70b; /* Yellow */
+}
+
+#resources {
+  top: 200px;
+  background-color: rgb(40, 219, 55) /* Green */
+}
+
+#links {
+  top: 260px;
+  background-color: rgb(40, 58, 219) /* Blue */
+}
+
+#tbs {
+  top: 320px;
+  background-color: rgb(207, 143, 233) /* Purple */
+  
+  
 }
 
   </style>
@@ -105,6 +159,8 @@ vertical-align: middle;
 
 <!DOCTYPE html>
 <html >
+
+
 
 <head>
   <meta charset="UTF-8">
@@ -116,11 +172,33 @@ vertical-align: middle;
 <!-- <link re
   l="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
 
+  
 
 </head>
 
 <body>
+
+
+  <div id="mySidenav" class="sidenav">
+    <a href="#" id="project">The Project</a>
+    <a href="#" id="team">The Team</a>
+    <a href="#" id="analyser">Tweets Analyser</a>
+    <a href="#" id="resources">Resources</a>
+    <a href="#" id="links">Links</a>
+    <a href="https://www.tbs-education.fr/" id="tbs"> 
+      <img
+      class="logo"
+      src= "https://www.tbs-education.fr/content/uploads/sites/4/2020/02/1-logo-tbs-2019-rond-cmjn-fond-rouge.png"
+      alt="image" 
+      width="100" 
+      height="100">
+    </a>
+  
+  </div>
+
  <div class="login">
+
+  
   <img 
   class="content" 
   src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
@@ -128,7 +206,8 @@ vertical-align: middle;
   width="150" 
   height="150">
 
-	<h1>Tweet Analyser </h1>
+
+	<h1>Tweet Analyser   </h1>
      <h4> Enter the tweet you want to analyse :</h4>
 
      <!-- Main Input For Receiving Query to our ML -->
@@ -144,7 +223,44 @@ vertical-align: middle;
    
       <footer class= "footer" >
         
-            <h5>Links</h5>
+            <!-- <h5>Links</h5> -->
+
+   <br>
+
+  
+
+
+  
+ </div>
+
+ <div class="links" style="display:none">
+
+  
+  <img 
+  class="content" 
+  src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
+  alt="image" 
+  width="150" 
+  height="150">
+
+
+	<h1>Tweet Analyser!!!   </h1>
+     <h4> Enter the tweet you want to analyse :</h4>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<!--
+      <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
+      <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
+      -->
+		  <input type="text" name="fuel" placeholder="Enter the message ... " required="required" />
+
+      <button type="submit" class="btn">Predict</button>
+    </form>
+   
+      <footer class= "footer" >
+        
+            <!-- <h5>Links</h5> -->
 
    <br>
 
@@ -159,5 +275,20 @@ vertical-align: middle;
 </html>
 
 <script>
+
+function initElement()
+{
+  var links = document.getElementById("links"); //<a> 
+                                                //login
+                                                //div links
+
+
+  // NOTE: showAlert(); ou showAlert(param); NE fonctionne PAS ici.
+  // Il faut fournir une valeur de type function (nom de fonction déclaré ailleurs ou declaration en ligne de fonction).
+  links.onclick = links.style.display;
+  
+};
   console.log("toto_js")
+
+
 </script>
