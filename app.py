@@ -24,6 +24,7 @@ from pytorch_pretrained_bert import BertConfig
 from nltk.tokenize.treebank import TreebankWordTokenizer
 from gensim.models import KeyedVectors
 
+
 #Initialize the flask App
 app = Flask(__name__)
 
@@ -45,8 +46,8 @@ bert_config = BertConfig("input\\arti-bert-inference\\bert\\bert_config.json")
 tokenizer = BertTokenizer.from_pretrained(BERT_MODEL_PATH, cache_dir=None,do_lower_case=True)
 
 #tqdm.pandas()
-CRAWL_EMBEDDING_PATH = CRAWL_EMBEDDING_PATH = "input\\gensim-embeddings-dataset\\crawl-300d-2M.gensim\\crawl-300d-2M.gensim"
-GLOVE_EMBEDDING_PATH = GLOVE_EMBEDDING_PATH = "input\\gensim-embeddings-dataset\\glove.840B.300d.gensim\\glove.840B.300d.gensim"
+#CRAWL_EMBEDDING_PATH = CRAWL_EMBEDDING_PATH = "input\\gensim-embeddings-dataset\\crawl-300d-2M.gensim\\crawl-300d-2M.gensim"
+#GLOVE_EMBEDDING_PATH = GLOVE_EMBEDDING_PATH = "input\\gensim-embeddings-dataset\\glove.840B.300d.gensim\\glove.840B.300d.gensim"
 NUM_MODELS = 2
 LSTM_UNITS = 128
 DENSE_HIDDEN_UNITS = 4 * LSTM_UNITS
@@ -177,8 +178,9 @@ if not is_interactive():
 
 seed_everything()
 
+
 model = BertForSequenceClassification(bert_config, num_labels=1)
-model.load_state_dict(torch.load("input\\arti-bert-inference\\bert\\bert_pytorch.bin", map_location=torch.device('cpu')))
+model.load_state_dict(torch.hub.load_state_dict_from_url("https://www.googleapis.com/drive/v3/files/1RYFMsASHW7a92qa7zW296zgnToRQFeb5?alt=media&key=AIzaSyA0OHTKp3e0TvdIyua79c8jH_v6WBmGEKI", map_location=torch.device('cpu')))
 
 model.to(device)
 for param in model.parameters():
@@ -231,4 +233,6 @@ def predict():
 if __name__ == '__main__':
     app.debug = True
     port = int(os.environ.get("PORT", 80))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='127.0.0.1', port=port, debug=True)
+
+    
