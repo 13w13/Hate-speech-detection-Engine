@@ -38,11 +38,12 @@ SEED = 1234
 BATCH_SIZE = 512
 #BERT_MODEL_PATH = "C:\Users\antoi\Desktop\TBS\UE 6\AI and BIG DATA Management\Hate-speech-detection-Engine\input\bert-pretrained-models\uncased_l-12_h-768_a-12\uncased_L-12_H-768_A-12"
 #BERT_MODEL_PATH = "C:\Users\antoi\Desktop\TBS\UE6\AIandBIGDATAManagement\Hate-speech-detection-Engine\input\bert-pretrained-models\uncased_l-12_h-768_a-12\uncased_L-12_H-768_A-12"
-BERT_MODEL_PATH = "input\\bert-pretrained-models\\uncased_l-12_h-768_a-12\\uncased_L-12_H-768_A-12"
+#BERT_MODEL_PATH = "input\\bert-pretrained-models\\uncased_l-12_h-768_a-12\\uncased_L-12_H-768_A-12"
+BERT_MODEL_PATH = "input/bert-pretrained-models/uncased_l-12_h-768_a-12/uncased_L-12_H-768_A-12"
 np.random.seed(SEED)
 torch.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
-bert_config = BertConfig("input\\arti-bert-inference\\bert\\bert_config.json")
+bert_config = BertConfig("input/arti-bert-inference/bert/bert_config.json")
 tokenizer = BertTokenizer.from_pretrained(BERT_MODEL_PATH, cache_dir=None,do_lower_case=True)
 
 #tqdm.pandas()
