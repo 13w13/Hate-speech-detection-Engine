@@ -112,7 +112,7 @@ def predict_words(tweet):
 seed_everything()
 
 model = BertForSequenceClassification(bert_config, num_labels=1)
-model.load_state_dict(torch.hub.load_state_dict_from_url("https://www.googleapis.com/drive/v3/files/1RYFMsASHW7a92qa7zW296zgnToRQFeb5?alt=media&key=AIzaSyA0OHTKp3e0TvdIyua79c8jH_v6WBmGEKI", map_location=torch.device('cpu')))
+model.load_state_dict(torch.hub.load_state_dict_from_url("https://www.googleapis.com/drive/v3/files/1RYFMsASHW7a92qa7zW296zgnToRQFeb5?alt=media&key=AIzaSyA0OHTKp3e0TvdIyua79c8jH_v6WBmGEKI", model_dir="input/arti-bert-inference/bert",map_location=torch.device('cpu')))
 
 model.to(device)
 for param in model.parameters():
