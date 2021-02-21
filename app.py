@@ -89,11 +89,12 @@ def predict_words(tweet):
     #test = torch.utils.data.TensorDataset(torch.tensor(X_test, dtype=torch.long))
     test = TensorDataset(torch.tensor(X_test, dtype=torch.long))
 
-    return("tutu")
-
     #test_loader = torch.utils.data.DataLoader(test, batch_size=512, shuffle=False)
     test_loader = DataLoader(test, batch_size=512, shuffle=False)
     tk0 = tqdm(test_loader)
+
+    return("titi")
+
     for i, (x_batch,) in enumerate(tk0):
         pred = model(x_batch.to(device), attention_mask=(x_batch > 0).to(device), labels=None)
         test_preds[i * 512:(i + 1) * 512] = pred[:, 0].detach().cpu().squeeze().numpy()
