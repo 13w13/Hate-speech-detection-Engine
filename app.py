@@ -91,17 +91,16 @@ def predict_words(tweet):
 
     #test_loader = torch.utils.data.DataLoader(test, batch_size=512, shuffle=False)
     test_loader = DataLoader(test, batch_size=512, shuffle=False)
-    tk0 = tqdm(test_loader)
+    #tk0 = tqdm(test_loader)
 
-    return(model)
 
-    for i, (x_batch,) in enumerate(tk0):
+
+    for i, (x_batch,) in enumerate(test_loader):
         pred = model(x_batch.to(device), attention_mask=(x_batch > 0).to(device), labels=None)
+        return(pred)
         test_preds[i * 512:(i + 1) * 512] = pred[:, 0].detach().cpu().squeeze().numpy()
 
     test_pred = torch.sigmoid(torch.tensor(test_preds)).numpy().ravel()  
-
-    return("tata")
 
     submission_bert = pd.DataFrame.from_dict({
         'id': test_input_df['id'],
@@ -170,6 +169,6 @@ def predict():
 if __name__ == '__main__':
     #app.debug = True
     port = int(os.environ.get("PORT", 80))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='127.0.0.1', port=port, debug=True)
 
     
