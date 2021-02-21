@@ -25,7 +25,7 @@ from pytorch_pretrained_bert import BertTokenizer, BertForSequenceClassification
 #from gensim.models import KeyedVectors
 
 #Initialize the flask App
-app = Flask(__name__)
+#app = Flask(__name__)
 #handler = logging.FileHandler("test.log")  # Create the file logger
 #app.logger.addHandler(handler)             # Add it to the built-in logger
 #app.logger.setLevel(logging.DEBUG) 
@@ -118,6 +118,8 @@ for param in model.parameters():
     param.requires_grad = False
 model.eval()
 
+app = Flask(__name__)
+
 #default page of our web-app
 @app.route('/')
 def home():
@@ -129,7 +131,7 @@ def home():
 
 def predict():
     if request.method == 'POST':
-        tweet = [str(x) for x in request.form.get()]
+        tweet = [str(x) for x in request.values.get()]
         
         #app.logger.info(tweet)
 
@@ -164,7 +166,7 @@ def predict():
 
 if __name__ == '__main__':
     app.debug = True
-    port = int(os.environ.get("PORT", 80))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
 
     
