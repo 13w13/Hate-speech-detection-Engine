@@ -75,9 +75,14 @@ def seed_everything(seed=123):
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
-def predict_words(tweet):
-    test_input_df = pd.DataFrame(np.array([[1,tweet]]),columns=['id', 'comment_text'])
+def predict_words(tweet): 
+
+    return("titi")
+    test_input_df = pd.DataFrame(np.array([[1,tweet]]),
+                    columns=['id', 'comment_text'])
+    
     test_input_df['comment_text'] = test_input_df['comment_text'].astype(str) 
+
     X_test = convert_lines(test_input_df["comment_text"].fillna("DUMMY_VALUE"), MAX_SEQUENCE_LENGTH, tokenizer)
     test_preds = np.zeros((len(X_test)))
 
@@ -116,14 +121,12 @@ def home():
     return render_template('index.html')
 
 #To use the predict button in our web-app
-@app.route('/predict', methods=['GET','POST'])
-
+@app.route('/predict',methods=['POST'])
 #def button_clicked():
 #    print('Hello world!')
 #    return redirect('/')
 def predict():
-    if request.method == 'POST':
-            '''
+    '''
     For rendering results on HTML GUI
     '''
     tweet = [str(x) for x in request.form.values()]
@@ -147,19 +150,20 @@ def predict():
 
     prob_prediction=predict_words(tweet[0])
 
+    """
     if prob_prediction >= 0.6: 
         prediction = "Insult "
     elif prob_prediction >= 0.4 and prob_prediction < 0.6: 
         prediction = "Neutral "
     else:
         prediction = "Non toxic "
-        
-    return render_template('index.html', prediction_text='Prediction is :{}'.format(prediction))
-    
+
+    """
+    return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
 
 if __name__ == '__main__':
     #app.debug = True
     port = int(os.environ.get("PORT", 80))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='127.0.0.1', port=port, debug=True)
 
     
