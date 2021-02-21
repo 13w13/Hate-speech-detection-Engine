@@ -93,13 +93,15 @@ def predict_words(tweet):
     test_loader = DataLoader(test, batch_size=512, shuffle=False)
     tk0 = tqdm(test_loader)
 
+    return(model)
+
     for i, (x_batch,) in enumerate(tk0):
         pred = model(x_batch.to(device), attention_mask=(x_batch > 0).to(device), labels=None)
         test_preds[i * 512:(i + 1) * 512] = pred[:, 0].detach().cpu().squeeze().numpy()
 
     test_pred = torch.sigmoid(torch.tensor(test_preds)).numpy().ravel()  
 
-    return(test_pred)
+    return("tata")
 
     submission_bert = pd.DataFrame.from_dict({
         'id': test_input_df['id'],
