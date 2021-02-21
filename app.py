@@ -81,10 +81,11 @@ def predict_words(tweet):
                     columns=['id', 'comment_text'])
     
     test_input_df['comment_text'] = test_input_df['comment_text'].astype(str)
-
-    return("tyty")
  
     X_test = convert_lines(test_input_df["comment_text"].fillna("DUMMY_VALUE"), MAX_SEQUENCE_LENGTH, tokenizer)
+
+    return("toto")
+
     test_preds = np.zeros((len(X_test)))
 
     #test = torch.utils.data.TensorDataset(torch.tensor(X_test, dtype=torch.long))
