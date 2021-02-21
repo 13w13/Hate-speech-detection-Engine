@@ -99,7 +99,7 @@ def predict_words(tweet):
 
     test_pred = torch.sigmoid(torch.tensor(test_preds)).numpy().ravel()  
 
-    return(test_pred)
+    return("tata")
 
     submission_bert = pd.DataFrame.from_dict({
         'id': test_input_df['id'],
