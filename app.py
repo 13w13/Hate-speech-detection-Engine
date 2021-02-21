@@ -131,7 +131,7 @@ def home():
 
 def predict():
     if request.method == 'POST':
-        tweet = [str(x) for x in request.values.get()]
+        tweet = [str(x) for x in request.form()]
         
         #app.logger.info(tweet)
 
