@@ -129,7 +129,8 @@ def predict():
     For rendering results on HTML GUI
     '''
     tweet = [str(x) for x in request.form.values()]
-    #app.logger.info(tweet)
+    
+    """#app.logger.info(tweet)
 
     ############
 
@@ -155,6 +156,8 @@ def predict():
     else:
         prediction = "Non toxic "
 
+        """
+    prediction = tweet
 
     return render_template('index.html', prediction_text='Prediction is :{}'.format(prediction))
 
