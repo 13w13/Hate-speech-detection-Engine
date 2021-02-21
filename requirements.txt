@@ -11,10 +11,10 @@ numpy==1.17.3
 #nltk==3.2.5
 #gensim==3.6.0
 #fastprogress==1.0.0
-https://download.pytorch.org/whl/cpu/torch-1.7.1%2Bcpu-cp36-cp36m-linux_x86_64.whl
+#https://download.pytorch.org/whl/cpu/torch-1.7.1%2Bcpu-cp36-cp36m-linux_x86_64.whl
 #https://download.pytorch.org/whl/cpu/torch-1.5.1%2Bcpu-cp36-cp36m-linux_x86_64.whl
 #torch==1.7.1
-
+torch
 #fastai==1.0.61
 pytorch-pretrained-bert==0.6.2
 
