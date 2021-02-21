@@ -131,7 +131,7 @@ def home():
 
 def predict():
     if request.method == 'POST':
-        tweet = [str(x) for x in request.form.get()]
+        tweet = [str(x) for x in request.form.values()]
         
         #app.logger.info(tweet)
 
@@ -149,7 +149,7 @@ def predict():
         #output = round(prediction[0], 2)
 
         prediction = "bonjour"
-
+        prob_prediction = []
         prob_prediction=predict_words(tweet[0])
 
         """
