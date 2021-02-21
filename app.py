@@ -116,7 +116,7 @@ def home():
     return render_template('index.html')
 
 #To use the predict button in our web-app
-@app.route('/predict' methods=['GET','POST'])
+@app.route('/predict', methods=['GET','POST'])
 #def button_clicked():
 #    print('Hello world!')
 #    return redirect('/')
