@@ -117,11 +117,13 @@ def home():
 
 #To use the predict button in our web-app
 @app.route('/predict', methods=['GET','POST'])
+
 #def button_clicked():
 #    print('Hello world!')
 #    return redirect('/')
 def predict():
-    '''
+    if request.method == 'POST':
+            '''
     For rendering results on HTML GUI
     '''
     tweet = [str(x) for x in request.form.values()]
@@ -151,13 +153,13 @@ def predict():
         prediction = "Neutral "
     else:
         prediction = "Non toxic "
-
-
+        
     return render_template('index.html', prediction_text='Prediction is :{}'.format(prediction))
+    
 
 if __name__ == '__main__':
     #app.debug = True
     port = int(os.environ.get("PORT", 80))
-    app.run(host='127.0.0.1', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
 
     
