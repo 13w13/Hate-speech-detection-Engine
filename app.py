@@ -129,40 +129,38 @@ def home():
 
 def predict():
     if request.method == 'POST':
-        '''
-    For rendering results on HTML GUI
-    '''
-    tweet = [str(x) for x in request.form.values()]
-    
-    #app.logger.info(tweet)
+        tweet = [str(x) for x in request.form.values()]
+        
+        #app.logger.info(tweet)
 
-    ############
+        ############
 
-    # Input 
+        # Input 
 
-    ##faire les memes operations de test que dans le notebook 
+        ##faire les memes operations de test que dans le notebook 
 
-    #return(int_features)
+        #return(int_features)
 
-    #final_features = [np.array(int_features)]
-    #prediction = model.predict(final_features)
+        #final_features = [np.array(int_features)]
+        #prediction = model.predict(final_features)
 
-    #output = round(prediction[0], 2)
+        #output = round(prediction[0], 2)
 
-    prediction = "bonjour"
+        prediction = "bonjour"
 
-    prob_prediction=predict_words(tweet[0])
+        prob_prediction=predict_words(tweet[0])
 
-    """
-    if prob_prediction >= 0.6: 
-        prediction = "Insult "
-    elif prob_prediction >= 0.4 and prob_prediction < 0.6: 
-        prediction = "Neutral "
-    else:
-        prediction = "Non toxic "
+        """
+        if prob_prediction >= 0.6: 
+            prediction = "Insult "
+        elif prob_prediction >= 0.4 and prob_prediction < 0.6: 
+            prediction = "Neutral "
+        else:
+            prediction = "Non toxic "
 
-    """
-    return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
+        """
+        return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
+        
     
 
 if __name__ == '__main__':
