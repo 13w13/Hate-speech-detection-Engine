@@ -75,33 +75,29 @@ def seed_everything(seed=123):
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
-def predict_words(tweet): 
+def predict_words(tweet):
+    test_input_df = pd.DataFrame(np.array([[1,tweet]]),columns=['id', 'comment_text'])
+    test_input_df['comment_text'] = test_input_df['comment_text'].astype(str) 
+    X_test = convert_lines(test_input_df["comment_text"].fillna("DUMMY_VALUE"), MAX_SEQUENCE_LENGTH, tokenizer)
+    test_preds = np.zeros((len(X_test)))
 
-  test_input_df = pd.DataFrame(np.array([[1,tweet]]),
-                   columns=['id', 'comment_text'])
-  
-  test_input_df['comment_text'] = test_input_df['comment_text'].astype(str) 
+    #test = torch.utils.data.TensorDataset(torch.tensor(X_test, dtype=torch.long))
+    test = TensorDataset(torch.tensor(X_test, dtype=torch.long))
+    #test_loader = torch.utils.data.DataLoader(test, batch_size=512, shuffle=False)
+    test_loader = DataLoader(test, batch_size=512, shuffle=False)
+    tk0 = tqdm(test_loader)
+    for i, (x_batch,) in enumerate(tk0):
+        pred = model(x_batch.to(device), attention_mask=(x_batch > 0).to(device), labels=None)
+        test_preds[i * 512:(i + 1) * 512] = pred[:, 0].detach().cpu().squeeze().numpy()
 
-  X_test = convert_lines(test_input_df["comment_text"].fillna("DUMMY_VALUE"), MAX_SEQUENCE_LENGTH, tokenizer)
-  test_preds = np.zeros((len(X_test)))
+    test_pred = torch.sigmoid(torch.tensor(test_preds)).numpy().ravel()  
 
-  #test = torch.utils.data.TensorDataset(torch.tensor(X_test, dtype=torch.long))
-  test = TensorDataset(torch.tensor(X_test, dtype=torch.long))
-  #test_loader = torch.utils.data.DataLoader(test, batch_size=512, shuffle=False)
-  test_loader = DataLoader(test, batch_size=512, shuffle=False)
-  tk0 = tqdm(test_loader)
-  for i, (x_batch,) in enumerate(tk0):
-    pred = model(x_batch.to(device), attention_mask=(x_batch > 0).to(device), labels=None)
-    test_preds[i * 512:(i + 1) * 512] = pred[:, 0].detach().cpu().squeeze().numpy()
+    submission_bert = pd.DataFrame.from_dict({
+        'id': test_input_df['id'],
+        'prediction': test_pred
+    }) 
 
-  test_pred = torch.sigmoid(torch.tensor(test_preds)).numpy().ravel()  
-
-  submission_bert = pd.DataFrame.from_dict({
-    'id': test_input_df['id'],
-    'prediction': test_pred
-  }) 
-
-  return float(submission_bert['prediction'].values)
+    return float(submission_bert['prediction'].values)
 
 seed_everything()
 
@@ -120,7 +116,7 @@ def home():
     return render_template('index.html')
 
 #To use the predict button in our web-app
-@app.route('/predict',methods=['POST'])
+@app.route('/predict' methods=['GET','POST'])
 #def button_clicked():
 #    print('Hello world!')
 #    return redirect('/')
