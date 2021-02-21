@@ -77,13 +77,13 @@ def sigmoid(x):
 
 def predict_words(tweet): 
 
-    return("tata")
-
     test_input_df = pd.DataFrame(np.array([[1,tweet]]),
                     columns=['id', 'comment_text'])
     
-    test_input_df['comment_text'] = test_input_df['comment_text'].astype(str) 
+    test_input_df['comment_text'] = test_input_df['comment_text'].astype(str)
 
+    return("tyty")
+ 
     X_test = convert_lines(test_input_df["comment_text"].fillna("DUMMY_VALUE"), MAX_SEQUENCE_LENGTH, tokenizer)
     test_preds = np.zeros((len(X_test)))
 
