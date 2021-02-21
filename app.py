@@ -96,7 +96,7 @@ def predict_words(tweet):
 
 
     for i, (x_batch,) in enumerate(test_loader):
-        pred = model(x_batch.to(device), attention_mask=(x_batch > 0).to(device), labels=None)
+        pred = model(x_batch, attention_mask=(x_batch > 0), labels=None)
         return(pred)
         test_preds[i * 512:(i + 1) * 512] = pred[:, 0].detach().cpu().squeeze().numpy()
 
@@ -114,7 +114,6 @@ seed_everything()
 model = BertForSequenceClassification(bert_config, num_labels=1)
 model.load_state_dict(torch.hub.load_state_dict_from_url("https://www.googleapis.com/drive/v3/files/1RYFMsASHW7a92qa7zW296zgnToRQFeb5?alt=media&key=AIzaSyA0OHTKp3e0TvdIyua79c8jH_v6WBmGEKI", model_dir="input/arti-bert-inference/bert",map_location=torch.device('cpu')))
 
-model.to(device)
 for param in model.parameters():
     param.requires_grad = False
 model.eval()
@@ -167,7 +166,7 @@ def predict():
     return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     port = int(os.environ.get("PORT", 80))
     app.run(host='0.0.0.0', port=port, debug=True)
 
