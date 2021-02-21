@@ -77,7 +77,6 @@ def sigmoid(x):
 
 def predict_words(tweet): 
 
-    #return("titi")
     test_input_df = pd.DataFrame(np.array([[1,tweet]]),
                     columns=['id', 'comment_text'])
     
@@ -101,6 +100,8 @@ def predict_words(tweet):
         'id': test_input_df['id'],
         'prediction': test_pred
     }) 
+
+    return("tutu")
 
     return float(submission_bert['prediction'].values)
 
@@ -130,11 +131,6 @@ def predict():
     For rendering results on HTML GUI
     '''
     tweet = [str(x) for x in request.form.values()]
-
-    test_input_df = pd.DataFrame(np.array([[1,tweet]]),
-                    columns=['id', 'comment_text'])
-    
-    test_input_df['comment_text'] = test_input_df['comment_text'].astype(str) 
     
     #app.logger.info(tweet)
 
@@ -164,7 +160,7 @@ def predict():
         prediction = "Non toxic "
 
     """
-    return render_template('index.html', prediction_text='Prediction is :{}'.format(type(test_input_df)))
+    return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
 
 if __name__ == '__main__':
     #app.debug = True
