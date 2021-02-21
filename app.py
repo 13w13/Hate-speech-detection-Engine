@@ -144,6 +144,8 @@ def predict():
 
     #output = round(prediction[0], 2)
 
+    prediction = "bonjour"
+
     prob_prediction=predict_words(tweet[0])
 
     if prob_prediction >= 0.6: 
@@ -151,8 +153,7 @@ def predict():
     elif prob_prediction >= 0.4 and prob_prediction < 0.6: 
         prediction = "Neutral "
     else:
-        prediction = "Non toxic """
-
+        prediction = "Non toxic "
 
 
     return render_template('index.html', prediction_text='Prediction is :{}'.format(prediction))
