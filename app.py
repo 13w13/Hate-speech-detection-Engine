@@ -77,6 +77,8 @@ def sigmoid(x):
 
 def predict_words(tweet): 
 
+    return("tata")
+
     test_input_df = pd.DataFrame(np.array([[1,tweet]]),
                     columns=['id', 'comment_text'])
     
@@ -100,8 +102,6 @@ def predict_words(tweet):
         'id': test_input_df['id'],
         'prediction': test_pred
     }) 
-
-    return("tutu")
 
     return float(submission_bert['prediction'].values)
 
