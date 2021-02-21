@@ -84,12 +84,13 @@ def predict_words(tweet):
  
     X_test = convert_lines(test_input_df["comment_text"].fillna("DUMMY_VALUE"), MAX_SEQUENCE_LENGTH, tokenizer)
 
-    return("toto")
-
     test_preds = np.zeros((len(X_test)))
 
     #test = torch.utils.data.TensorDataset(torch.tensor(X_test, dtype=torch.long))
     test = TensorDataset(torch.tensor(X_test, dtype=torch.long))
+
+    return("tutu")
+
     #test_loader = torch.utils.data.DataLoader(test, batch_size=512, shuffle=False)
     test_loader = DataLoader(test, batch_size=512, shuffle=False)
     tk0 = tqdm(test_loader)
