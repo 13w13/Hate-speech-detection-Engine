@@ -126,11 +126,10 @@ def home():
 
 #To use the predict button in our web-app
 @app.route('/predict',methods=['POST'])
-#def button_clicked():
-#    print('Hello world!')
-#    return redirect('/')
+
 def predict():
-    '''
+    if request.method == 'POST':
+        '''
     For rendering results on HTML GUI
     '''
     tweet = [str(x) for x in request.form.values()]
@@ -164,6 +163,7 @@ def predict():
 
     """
     return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
+    
 
 if __name__ == '__main__':
     app.debug = True
