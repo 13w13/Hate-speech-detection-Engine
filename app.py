@@ -37,11 +37,11 @@ BATCH_SIZE = 512
 #BERT_MODEL_PATH = "C:\Users\antoi\Desktop\TBS\UE 6\AI and BIG DATA Management\Hate-speech-detection-Engine\input\bert-pretrained-models\uncased_l-12_h-768_a-12\uncased_L-12_H-768_A-12"
 #BERT_MODEL_PATH = "C:\Users\antoi\Desktop\TBS\UE6\AIandBIGDATAManagement\Hate-speech-detection-Engine\input\bert-pretrained-models\uncased_l-12_h-768_a-12\uncased_L-12_H-768_A-12"
 #BERT_MODEL_PATH = "input\\bert-pretrained-models\\uncased_l-12_h-768_a-12\\uncased_L-12_H-768_A-12"
-BERT_MODEL_PATH = "input/bert-pretrained-models/uncased_l-12_h-768_a-12/uncased_L-12_H-768_A-12"
+BERT_MODEL_PATH = os.getcwd()
 np.random.seed(SEED)
 torch.manual_seed(SEED)
-torch.backends.cudnn.deterministic = True
-bert_config = BertConfig("input/arti-bert-inference/bert/bert_config.json")
+#torch.backends.cudnn.deterministic = True
+bert_config = BertConfig("arti-bert-inference-bert_config.json")
 tokenizer = BertTokenizer.from_pretrained(BERT_MODEL_PATH, cache_dir=None,do_lower_case=True)
 
 #tqdm.pandas()
@@ -112,7 +112,7 @@ def predict_words(tweet):
 seed_everything()
 
 model = BertForSequenceClassification(bert_config, num_labels=1)
-model.load_state_dict(torch.hub.load_state_dict_from_url("https://www.googleapis.com/drive/v3/files/1RYFMsASHW7a92qa7zW296zgnToRQFeb5?alt=media&key=AIzaSyA0OHTKp3e0TvdIyua79c8jH_v6WBmGEKI", model_dir="input/arti-bert-inference/bert",map_location=torch.device('cpu')))
+model.load_state_dict(torch.hub.load_state_dict_from_url("https://www.googleapis.com/drive/v3/files/1RYFMsASHW7a92qa7zW296zgnToRQFeb5?alt=media&key=AIzaSyA0OHTKp3e0TvdIyua79c8jH_v6WBmGEKI", model_dir="./",map_location=torch.device('cpu')))
 
 for param in model.parameters():
     param.requires_grad = False
