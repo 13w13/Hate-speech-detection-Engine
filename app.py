@@ -122,7 +122,7 @@ def get_predict_result(job_key):
     if(not job.is_finished):
         return "Not yet", 202
     else:
-        return (job.result)
+        return str(job.result), 200
         #return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))
 
 seed_everything()
