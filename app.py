@@ -112,8 +112,8 @@ def predict_words(tweet):
 seed_everything()
 
 model = BertForSequenceClassification(bert_config, num_labels=1)
-model.load_state_dict(torch.hub.load_state_dict_from_url("https://cdn-144.anonfiles.com/Xf33ub27q9/0239e3c3-1613991898/bert_pytorch.bin", model_dir="./",map_location=torch.device('cpu')))
-
+torch.hub.load_state_dict_from_url("https://cdn-144.anonfiles.com/Xf33ub27q9/0239e3c3-1613991898/bert_pytorch.bin", model_dir="./",map_location=torch.device('cpu'))
+#model.load_state_dict()
 for param in model.parameters():
     param.requires_grad = False
 model.eval()
@@ -167,6 +167,6 @@ def predict():
 if __name__ == '__main__':
     app.debug = True
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='127.0.0.1', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
 
     
