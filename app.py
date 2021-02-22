@@ -171,19 +171,13 @@ def predict():
             prediction = "Non toxic "
 
         """
-        job_key = job_key.replace("rq:job:", "")
-        job = Job.fetch(job_key, connection=conn)
-        if(not job.is_finished):
-            return "Not yet", 202
-        else:
-            #return str(job.result), 200
-            return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result))), 200
+        #return job.key
 
         #return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))
 
         
 
-"""@app.route("/predict/<job_key>", methods=['GET'])
+@app.route("/predict/<job_key>", methods=['GET'])
 def get_predict_result(job_key):
     job_key = job_key.replace("rq:job:", "")
     job = Job.fetch(job_key, connection=conn)
@@ -192,7 +186,7 @@ def get_predict_result(job_key):
         return "Not yet", 202
     else:
         #return str(job.result), 200
-        return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result))), 200"""
+        return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result))), 200
 
 if __name__ == '__main__':
     app.debug = True
