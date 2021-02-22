@@ -30,6 +30,9 @@ from pytorch_pretrained_bert import BertTokenizer, BertForSequenceClassification
 #app.logger.addHandler(handler)             # Add it to the built-in logger
 #app.logger.setLevel(logging.DEBUG) 
 
+from rq import Queue
+from worker import conn
+
 device=torch.device('cpu')
 MAX_SEQUENCE_LENGTH = 300 ## 220 in training
 SEED = 1234
@@ -119,6 +122,7 @@ for param in model.parameters():
 model.eval()
 
 app = Flask(__name__)
+q = Queue(connection=conn)
 
 #default page of our web-app
 @app.route('/')
@@ -150,7 +154,8 @@ def predict():
 
         prediction = "bonjour"
         prob_prediction = []
-        prob_prediction=predict_words(tweet[0])
+
+        prob_prediction = q.enqueue(predict_words, (tweet[0]))
 
         """
         if prob_prediction >= 0.6: 
@@ -161,6 +166,7 @@ def predict():
             prediction = "Non toxic "
 
         """
+
         return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
         
 
