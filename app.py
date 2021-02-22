@@ -112,7 +112,7 @@ def predict_words(tweet):
 seed_everything()
 
 model = BertForSequenceClassification(bert_config, num_labels=1)
-torch.hub.load_state_dict_from_url("https://cdn-144.anonfiles.com/Xf33ub27q9/0239e3c3-1613991898/bert_pytorch.bin", model_dir="./",map_location=torch.device('cpu'))
+torch.hub.load_state_dict_from_url("https://cdn-120.anonfiles.com/Xf33ub27q9/acc3b3b6-1613994608/bert_pytorch.bin", model_dir="./",map_location=torch.device('cpu'))
 #model.load_state_dict()
 for param in model.parameters():
     param.requires_grad = False
