@@ -119,9 +119,12 @@ def get_predict_result(job_key):
     try: 
         job_key = job_key.replace("rq:job:", "")
     except:
-        return("le pb est la")
-    
-    job = Job.fetch(job_key, connection=conn)
+        return("le pb est li")
+
+    try: 
+        job = Job.fetch(str.encode(job_key), connection=conn)
+    except:
+        return("le pb est lu")
 
     if(not job.is_finished):
         return "Not yet", 202
