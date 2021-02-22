@@ -1,1 +1,1 @@
-web: python app.py
+web: gunicorn app:app --preload --timeout 3000 --log-level debug
