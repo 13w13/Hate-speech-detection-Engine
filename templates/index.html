@@ -18,14 +18,14 @@
      <h4> Enter the tweet you want to analyse :</h4>
 
      <!-- Main Input For Receiving Query to our ML -->
-    <form action="/predict" method="POST">
+    <form target="_blank" action="/predict" method="POST">
     	<!--
       <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
       <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
       -->
 		  <input type="text" name="fuel" placeholder="Write some words..." required="required" />
 
-      <button type="submit" class="btn">Predict</button>
+      <button onclick="window.location.href = 'https://twitter-toxic-detector.herokuapp.com/predict/job';" type="submit" class="btn">Predict</button>
     </form>
 
    <br>
