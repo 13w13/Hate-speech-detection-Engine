@@ -176,7 +176,6 @@ def predict():
         #return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))
 
         
-
 @app.route("/predict/<job_key>", methods=['GET'])
 def get_predict_result(job_key):
     job_key = job_key.replace("rq:job:", "")
