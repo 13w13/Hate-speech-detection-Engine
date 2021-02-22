@@ -115,23 +115,6 @@ def predict_words(tweet):
 
     return float(submission_bert['prediction'].values)
 
-def get_predict_result(job_key):
-    try: 
-        job_key = job_key.replace("rq:job:", "")
-    except:
-        return("le pb est li")
-
-    try: 
-        job = Job.fetch(str.encode(job_key), connection=conn)
-    except:
-        return("le pb est lu")
-
-    if(not job.is_finished):
-        return "Not yet", 202
-    else:
-        return str(job.result), 200
-        #return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))
-
 seed_everything()
 
 model = BertForSequenceClassification(bert_config, num_labels=1)
@@ -188,13 +171,13 @@ def predict():
             prediction = "Non toxic "
 
         """
-        result = get_predict_result(str(job.key))
+        return job.key
 
-        return render_template('index.html', prediction_text='Prediction is :{}'.format(result))
+        #return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))
 
-        #return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
+        
 
-"""@app.route("/predict/<job_key>", methods=['GET'])
+@app.route("/predict/<job_key>", methods=['GET'])
 def get_predict_result(job_key):
     job_key = job_key.replace("rq:job:", "")
     job = Job.fetch(job_key, connection=conn)
@@ -203,7 +186,7 @@ def get_predict_result(job_key):
         return "Not yet", 202
     else:
         #return str(job.result), 200
-        return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))"""
+        return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result))), 200
 
 if __name__ == '__main__':
     app.debug = True
