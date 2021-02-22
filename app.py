@@ -116,7 +116,11 @@ def predict_words(tweet):
     return float(submission_bert['prediction'].values)
 
 def get_predict_result(job_key):
-    job_key = job_key.replace("rq:job:", "")
+    try: 
+        job_key = job_key.replace("rq:job:", "")
+    except:
+        return("le pb est la")
+    
     job = Job.fetch(job_key, connection=conn)
 
     if(not job.is_finished):
