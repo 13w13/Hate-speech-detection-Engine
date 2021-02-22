@@ -185,9 +185,9 @@ def predict():
             prediction = "Non toxic "
 
         """
-        job.result = get_predict_result(job.key)
+        result = get_predict_result(job.key)
 
-        return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))
+        return render_template('index.html', prediction_text='Prediction is :{}'.format(result))
 
         #return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
 
