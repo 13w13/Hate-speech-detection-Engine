@@ -31,7 +31,10 @@ from pytorch_pretrained_bert import BertTokenizer, BertForSequenceClassification
 #app.logger.setLevel(logging.DEBUG) 
 
 from rq import Queue
+from rq.job import Job
+from rq import get_current_job
 from worker import conn
+
 
 device=torch.device('cpu')
 MAX_SEQUENCE_LENGTH = 300 ## 220 in training
@@ -155,7 +158,8 @@ def predict():
         prediction = "bonjour"
         prob_prediction = []
 
-        prob_prediction = q.enqueue(predict_words, (tweet[0]))
+        #prob_prediction = q.enqueue(predict_words, (tweet[0]))
+        job = q.enqueue(predict_words, (tweet[0]))
 
         """
         if prob_prediction >= 0.6: 
@@ -166,9 +170,20 @@ def predict():
             prediction = "Non toxic "
 
         """
+        return job.key
 
-        return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
-        
+        #return render_template('index.html', prediction_text='Prediction is :{}'.format(prob_prediction))
+
+@app.route("/predict<job_key>", methods=['GET'])
+def get_predict_result(job_key):
+    job_key = job_key.replace("rq:job:", "")
+    job = Job.fetch(job_key, connection=conn)
+
+    if(not job.is_finished):
+        return "Not yet", 202
+    else:
+        #return str(job.result), 200
+        return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))
 
 if __name__ == '__main__':
     app.debug = True
