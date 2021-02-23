@@ -133,10 +133,18 @@ def get_predict_result(job_key):
     job_key = job_key.replace("rq:job:", "")
     #return render_template('index.html', prediction_text='Prediction is :{}'.format(job_key))
     job = Job.fetch(job_key, connection=conn)
+    compteur=0
 
     while(not job.is_finished):
         time.sleep(1)
-    return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result))), 200
+        compteur = compteur+1
+        if(compteur == 20):
+            break
+    
+    if(compteur == 20):
+        return render_template('index.html', prediction_text='Prediction is :{}'.format(str("toto")))
+    else:
+        return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result)))
 
 #default page of our web-app
 @app.route('/')
@@ -171,12 +179,14 @@ def predict():
 
         #prob_prediction = q.enqueue(predict_words, (tweet[0]))
         
-        #job = q.enqueue(predict_words, (tweet[0]))
+        job = q.enqueue(predict_words, (tweet[0]))
 
+        '''
         job = q.enqueue_call(
             func=predict_words, args=(tweet[0],), result_ttl=5000
         )
         print(job.get_id())
+        '''
 
         """
         if prob_prediction >= 0.6: 
