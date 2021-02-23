@@ -23,6 +23,7 @@ from tqdm import tqdm
 from pytorch_pretrained_bert import BertTokenizer, BertForSequenceClassification, BertAdam, BertConfig
 #from nltk.tokenize.treebank import TreebankWordTokenizer
 #from gensim.models import KeyedVectors
+import time
 
 #Initialize the flask App
 #app = Flask(__name__)
@@ -127,6 +128,16 @@ model.eval()
 app = Flask(__name__)
 q = Queue(connection=conn)
 
+def get_predict_result(job_key):
+    #job_key = "rq:worker:7e8f878d9a8c42029261a26e056bd742"
+    job_key = job_key.replace("rq:job:", "")
+    #return render_template('index.html', prediction_text='Prediction is :{}'.format(job_key))
+    job = Job.fetch(job_key, connection=conn)
+
+    while(not job.is_finished):
+        time.sleep(1)
+    return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result))), 200
+
 #default page of our web-app
 @app.route('/')
 def home():
@@ -159,8 +170,13 @@ def predict():
         prob_prediction = []
 
         #prob_prediction = q.enqueue(predict_words, (tweet[0]))
-        job = q.enqueue(predict_words, (tweet[0]))
+        
+        #job = q.enqueue(predict_words, (tweet[0]))
 
+        job = q.enqueue_call(
+            func=predict_words, args=(tweet[0],), result_ttl=5000
+        )
+        print(job.get_id())
 
         """
         if prob_prediction >= 0.6: 
@@ -171,14 +187,17 @@ def predict():
             prediction = "Non toxic "
 
         """
-        return job.key
+        return get_predict_result(job.key.decode("utf-8"))
+        #b'rq:job:61dd5aaa-3ac3-41d7-9f91-378b20c544b8' 
 
-        #return render_template('index.html', prediction_text='Prediction is :{}'.format(job.result))
+        #return render_template('index.html', prediction_text='Prediction is :{}'.format(job.key.decode("utf-8")))
 
-        
+'''        
 @app.route("/predict/<job_key>", methods=['GET'])
 def get_predict_result(job_key):
+    #job_key = "rq:worker:7e8f878d9a8c42029261a26e056bd742"
     job_key = job_key.replace("rq:job:", "")
+    #return render_template('index.html', prediction_text='Prediction is :{}'.format(job_key))
     job = Job.fetch(job_key, connection=conn)
 
     if(not job.is_finished):
@@ -186,10 +205,11 @@ def get_predict_result(job_key):
     else:
         #return str(job.result), 200
         return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result))), 200
+'''
 
 if __name__ == '__main__':
     app.debug = True
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='127.0.0.1', port=port, debug=True)
 
     
