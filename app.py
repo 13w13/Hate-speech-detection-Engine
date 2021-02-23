@@ -136,15 +136,17 @@ def get_predict_result(job_key):
     compteur=0
 
     while(not job.is_finished):
-        time.sleep(1)
-        compteur = compteur+1
-        if(compteur == 20):
-            break
+        None 
+        #time.sleep(1)
+        #compteur = compteur+1
+        #if(compteur == 20):
+        #break
     
-    if(compteur == 20):
-        return render_template('index.html', prediction_text='Prediction is :{}'.format(str("toto")))
-    else:
-        return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result)))
+    #if(compteur == 20):
+    #    return render_template('index.html', prediction_text='Prediction is :{}'.format(str("toto")))
+    #else:
+    #    return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result)))
+    return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result)))
 
 #default page of our web-app
 @app.route('/')
