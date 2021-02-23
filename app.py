@@ -136,12 +136,11 @@ def get_predict_result(job_key):
     compteur=0
 
     while(not job.is_finished):
-        None 
-        #time.sleep(1)
+        render_template('index.html', prediction_text='Prediction is :{}'.format(str("toto"))) 
+        time.sleep(1)
         #compteur = compteur+1
         #if(compteur == 20):
         #break
-    
     #if(compteur == 20):
     #    return render_template('index.html', prediction_text='Prediction is :{}'.format(str("toto")))
     #else:
@@ -181,14 +180,12 @@ def predict():
 
         #prob_prediction = q.enqueue(predict_words, (tweet[0]))
         
-        job = q.enqueue(predict_words, (tweet[0]))
+        #job = q.enqueue(predict_words, (tweet[0]))
 
-        '''
         job = q.enqueue_call(
-            func=predict_words, args=(tweet[0],), result_ttl=5000
+            func=predict_words, args=(tweet[0],), result_ttl=50000
         )
         print(job.get_id())
-        '''
 
         """
         if prob_prediction >= 0.6: 
@@ -199,6 +196,8 @@ def predict():
             prediction = "Non toxic "
 
         """
+        time.sleep(5)
+        
         return get_predict_result(job.key.decode("utf-8"))
         #b'rq:job:61dd5aaa-3ac3-41d7-9f91-378b20c544b8' 
 
