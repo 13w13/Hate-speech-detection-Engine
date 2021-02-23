@@ -135,7 +135,7 @@ def get_predict_result(job_key):
     job = Job.fetch(job_key, connection=conn)
 
     while(not job.is_finished):
-        time.sleep(1)
+        time.sleep(0.1)
     return render_template('index.html', prediction_text='Prediction is :{}'.format(str(job.result))), 200
 
 #default page of our web-app
@@ -210,6 +210,6 @@ def get_predict_result(job_key):
 if __name__ == '__main__':
     app.debug = True
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='127.0.0.1', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
 
     
