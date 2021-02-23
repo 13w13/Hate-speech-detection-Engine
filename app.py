@@ -136,7 +136,7 @@ def get_predict_result(job_key):
     compteur=0
 
     while(not job.is_finished):
-        render_template('index.html', prediction_text='Prediction is :{}'.format(str("toto"))) 
+        #render_template('index.html', prediction_text='Prediction is :{}'.format(str("toto"))) 
         time.sleep(1)
         #compteur = compteur+1
         #if(compteur == 20):
@@ -196,8 +196,8 @@ def predict():
             prediction = "Non toxic "
 
         """
-        time.sleep(5)
-        
+        #time.sleep(5)
+
         return get_predict_result(job.key.decode("utf-8"))
         #b'rq:job:61dd5aaa-3ac3-41d7-9f91-378b20c544b8' 
 
