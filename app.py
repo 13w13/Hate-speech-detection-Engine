@@ -27,7 +27,8 @@ from gensim.models import KeyedVectors
 #import libraries
 import logging
 import numpy as np
-from flask import Flask, request, jsonify, render_template
+import pandas as pd 
+from flask import Flask, request, jsonify, render_template, Response, make_response
 import pickle
 
 #Initialize the flask App
@@ -69,12 +70,35 @@ def predict():
     return render_template('index.html', prediction_text='Is it an hate message? :{}'.format(output))
 
 @app.route('/predict_csv',methods=['POST'])
-#def button_clicked():
-#    print('Hello world!')
-#    return redirect('/')
 def predict_csv():
+    return render_template('index.html', prediction_text='Is it an hate message? :{}'.format('/predict_csv/toto'))
+
+@app.route('/predict_csv/file',methods=['POST'])
+def predict_csv_file():
+    '''
+    For rendering results on HTML GUI
+    '''
+    # get the uploaded file
+    uploaded_file = request.files['file']
+    csvData = pd.read_csv(uploaded_file, header=None)
+    csvData = csvData.rename(columns={0:'tweet'})
+    csvData['pred'] = None
     
-    return render_template('index.html', prediction_text='Is it an hate message? :{}'.format("toto"))
+    for i in range(len(csvData)): 
+        csvData['pred'][i] = 0.5
+        #tweet_df['pred'][i] = predict_words(tweet_df.loc[i].values[0])
+        # #print(tweet_df.loc[i].values[0] + " " + str(predict_words(tweet_df.loc[i].values[0])))
+
+    #app.logger.info(csvData)
+
+    #output = round(prediction[0], 2)
+    #output = "toto"
+
+    resp = make_response(csvData.to_csv())
+    resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
+    resp.headers["Content-Type"] = "text/csv"
+
+    return resp
 
 if __name__ == "__main__":
     app.run(debug=True)
