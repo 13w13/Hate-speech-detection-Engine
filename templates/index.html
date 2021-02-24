@@ -306,7 +306,7 @@ position: absolute;
     <a id="analyser">Tweets Analyser</a>
     <a id="resources">Resources</a>
     <a id="links">Links</a>
-    <a href="https://www.tbs-education.fr/" id="tbs"> 
+    <a target="_blank" href="https://www.tbs-education.fr/" id="tbs"> 
       <img
       class="logo"
       src= "https://www.tbs-education.fr/content/uploads/sites/4/2020/02/1-logo-tbs-2019-rond-cmjn-fond-rouge.png"
@@ -316,63 +316,6 @@ position: absolute;
     </a>
   
   </div>
-
-  <div class="login" style="display:block">
-
-    <img 
-    class="content" 
-    src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
-    alt="image" 
-    width="150" 
-    height="150">
-
-    <h1>Tweets Analyser   </h1>
-      <h4> Enter the tweet you want to analyse :</h4>
-
-      <!-- Main Input For Receiving Query to our ML -->
-      <form action="{{ url_for('predict')}}"method="post">
-        <!--
-        <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
-        <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
-        -->
-        <input type="text" name="fuel" placeholder="Enter the message ... " required="required" />
-
-        <button type="submit" class="btn">Predict</button>
-      </form>
-    
-
-     <!--Upload a csv file -->
-
-      <h5 >Uploading a CSV File</h5>
-
-         <h4 > CSV File </h4>
-         <input type="file" id="csvfile" position=center> 
-             
-         <b>Header</b> <select id="header">
-  <option>true</option>
-  <option>false</option>
-             </select>
-
-              
-<button id="submitbutton" type="button">read.csv</button>
-
-<pre><code id="output"></code></pre>
-
-
-<form action="{{ url_for('predict_csv')}}"method="post">
-  <!--
-  <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
-  <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
-  -->
-  
-  <button type="submit" class="btn">Predict CSV</button>
-
-</form>
-
-
-      </div>
-
-    
 
  <!-- Onglet Tweets Analyser-->
 
@@ -498,6 +441,39 @@ position: absolute;
     </a>
 
 
+  </div>
+
+  <div class="login" style="display:block">
+
+    <img 
+    class="content" 
+    src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
+    alt="image" 
+    width="150" 
+    height="150">
+
+    <h1>Tweets Analyser   </h1>
+      <h4> Enter the tweet you want to analyse :</h4>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}"method="post">
+        <!--
+        <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
+        <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
+        -->
+        <input type="text" name="fuel" placeholder="Enter the message ... " required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+      </form>
+
+      {{ prediction_text }}
+
+      <h1>Upload your CSV file</h1>
+      <form method="POST" action="/predict_csv/file" enctype="multipart/form-data">
+      <p><input type="file" name="file"></p>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    
   </div>
 
 
@@ -714,12 +690,8 @@ for(var i = 0; i < analyser.length; i++){
 
 }
 
-
 // UPLOADING CSV FILES
-
-var file = document.getElementById(id="csvfile");
-console.log(file);
-// commande pour lire un csv? et le stocker ?
+/*
 //because read.csv is in utils
 ocpu.seturl("//public.opencpu.org/ocpu/library/utils/R")
 
@@ -735,9 +707,6 @@ $("#submitbutton").on("click", function(){
         return;
     }
 
-    console.log(myfile);
-
-
     //disable the button during upload
     $("#submitbutton").attr("disabled", "disabled");
 
@@ -750,8 +719,6 @@ $("#submitbutton").on("click", function(){
             $("#output").text(outtxt); 
         });
     });
-
-    console.log(req);
         
     //if R returns an error, alert the error message
     req.fail(function(){
@@ -763,6 +730,7 @@ $("#submitbutton").on("click", function(){
         $("#submitbutton").removeAttr("disabled")
     });        
 });  
+*/
 
 // Onglet login
 /*
