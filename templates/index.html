@@ -358,7 +358,18 @@ position: absolute;
 
 <pre><code id="output"></code></pre>
 
+
+<form action="{{ url_for('predict_csv')}}"method="post">
+  <!--
+  <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
+  <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
+  -->
   
+  <button type="submit" class="btn">Predict CSV</button>
+
+</form>
+
+
       </div>
 
     
@@ -703,8 +714,12 @@ for(var i = 0; i < analyser.length; i++){
 
 }
 
+
 // UPLOADING CSV FILES
 
+var file = document.getElementById(id="csvfile");
+console.log(file);
+// commande pour lire un csv? et le stocker ?
 //because read.csv is in utils
 ocpu.seturl("//public.opencpu.org/ocpu/library/utils/R")
 
@@ -720,6 +735,9 @@ $("#submitbutton").on("click", function(){
         return;
     }
 
+    console.log(myfile);
+
+
     //disable the button during upload
     $("#submitbutton").attr("disabled", "disabled");
 
@@ -732,6 +750,8 @@ $("#submitbutton").on("click", function(){
             $("#output").text(outtxt); 
         });
     });
+
+    console.log(req);
         
     //if R returns an error, alert the error message
     req.fail(function(){

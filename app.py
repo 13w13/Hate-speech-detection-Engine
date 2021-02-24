@@ -68,5 +68,13 @@ def predict():
     output = "toto"
     return render_template('index.html', prediction_text='Is it an hate message? :{}'.format(output))
 
+@app.route('/predict_csv',methods=['POST'])
+#def button_clicked():
+#    print('Hello world!')
+#    return redirect('/')
+def predict_csv():
+    
+    return render_template('index.html', prediction_text='Is it an hate message? :{}'.format("toto"))
+
 if __name__ == "__main__":
     app.run(debug=True)
