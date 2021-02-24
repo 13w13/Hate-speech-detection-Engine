@@ -56,7 +56,8 @@ def predict():
     For rendering results on HTML GUI
     '''
     tweet = [str(x) for x in request.form.values()]
-    app.logger.info(tweet)
+
+    #app.logger.info(tweet)
 
     ##faire les memes operations de test que dans le notebook 
 
@@ -66,7 +67,10 @@ def predict():
     #prediction = model.predict(final_features)
 
     #output = round(prediction[0], 2)
-    output = "toto"
+
+    #app.logger.info(type(tweet))
+    output = "tata"
+    
     return render_template('index.html', prediction_text='Is it an hate message? :{}'.format(output))
 
 @app.route('/predict_csv',methods=['POST'])
@@ -86,7 +90,7 @@ def predict_csv_file():
     
     for i in range(len(csvData)): 
         csvData['pred'][i] = 0.5
-        #tweet_df['pred'][i] = predict_words(tweet_df.loc[i].values[0])
+        #csvData['pred'][i] = predict_words(csvData.loc[i].values[0])
         # #print(tweet_df.loc[i].values[0] + " " + str(predict_words(tweet_df.loc[i].values[0])))
 
     #app.logger.info(csvData)
