@@ -165,7 +165,7 @@ vertical-align: middle;
 
 .analyser {
 	position: absolute;
-	top: 40%;
+	top: 20%;
 	left: 45%;
 	margin: -150px 0 0 -150px;
 	width:550px;
@@ -236,14 +236,15 @@ vertical-align: middle;
 
 .links {
 position: absolute;
-	top: 35%;
+	top: 20%;
 	left: 40%;
 	margin: -100px 0 0 -100px;
 	width:800px;
 	height:100px;
-  text-align: center;
+  text-align: justify;
   font-size: 18px;
 }
+
 
 /* CSS Team */
 
@@ -267,9 +268,13 @@ position: absolute;
 	margin: -100px 0 0 -100px;
 	width:800px;
 	height:100px;
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   line-height: 52px;
+}
+
+input[type=radio] {
+  display: inline;
 }
 
   </style>
@@ -305,7 +310,7 @@ position: absolute;
     <a id="team">The Team</a>
     <a id="analyser">Tweets Analyser</a>
     <a id="resources">Resources</a>
-    <a id="links">Links</a>
+    <a id="links">The Model</a>
     <a target="_blank" href="https://www.tbs-education.fr/" id="tbs"> 
       <img
       class="logo"
@@ -319,34 +324,51 @@ position: absolute;
 
  <!-- Onglet Tweets Analyser-->
 
-  <div class="analyser" style="display:none">
+ <div class="analyser" style="display:none">
 
-    <img 
-    class="content" 
-    src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
-    alt="image" 
-    width="150" 
-    height="150">
+  <img 
+  class="content" 
+  src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
+  alt="image" 
+  width="150" 
+  height="150">
 
+  <h1>Tweets Analyser   </h1>
 
-    <h1>Tweet Analyser   </h1>
-      <h4> Enter the tweet you want to analyse :</h4>
+    <div>
+      <input type="radio" id="huey" name="drone" value="huey" onclick="display_tweet()" checked>
+      <label for="huey">Tweet</label>
+    </div>
 
+    <div>
+      <input type="radio" id="dewey" name="drone" value="dewey" onclick="display_csv()">
+      <label for="dewey">CSV</label>
+    </div>
+
+    <div class="tweet" style="display:block">
       <!-- Main Input For Receiving Query to our ML -->
-      <form action="{{ url_for('predict')}}"method="post">
+      <h4> Enter the tweet you want to analyse :</h4>
+      <form action="{{ url_for('predict')}}" method="post" >
         <!--
         <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
         <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
         -->
-        <input type="text" name="fuel" placeholder="Enter the message ... " required="required" />
+        <input type="text" name="fuel" placeholder="Enter the message ... "/>
 
         <button type="submit" class="btn">Predict</button>
       </form>
-    
+      {{ prediction_text }}
+    </div>
 
-    <br>
-
-  </div>  
+    <div class="csv" style="display:none">
+      <h1>Upload your CSV file</h1>
+      <form method="POST" action="/predict_csv/file" enctype="multipart/form-data">
+      <p><input type="file" name="file"></p>
+        <button type="submit" class="btn">Predict</button>
+      </form>
+    </div>
+  
+</div>
  
 
  <!-- Onglet The project -->
@@ -385,10 +407,10 @@ position: absolute;
 
   <div class="resources" style="display:none">
 
-    <h2> More understanding about the App environment  </h2>
+    <p> More understanding about the App environment:
 
-    <br>
-    <a href="https://palletsprojects.com/p/flask/">
+      <br> 
+    <a target="_blank" href="https://palletsprojects.com/p/flask/">
       <img 
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/1200px-Flask_logo.svg.png" 
       alt="flask Logo"
@@ -398,10 +420,10 @@ position: absolute;
     
     </a>
 
-    <br> <br> <br> 
+    <br> <br> 
     
 
-    <a href="https://pytorch.org/">
+    <a target="_blank" href="https://pytorch.org/">
       <img 
       src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png" 
       alt="Pytorch Logo"
@@ -409,14 +431,27 @@ position: absolute;
       height="50"
       >
 
-    <br> <br> <br> 
+    <br> <br> 
 
-    <a href="https://devcenter.heroku.com/categories/deployment">
+    <a target="_blank" href="https://devcenter.heroku.com/categories/deployment">
       <img 
       src="https://logos-download.com/wp-content/uploads/2016/09/Heroku_logo.png" 
       alt="Heroku Logo"
       width="150" 
       height="50"
+      >
+    
+    </a>
+    <br> 
+    <p> If you want more details about the app checkout our Github project:
+      <br> 
+      
+    <a target="_blank" href="https://github.com/13w13/Hate-speech-detection-Engine">
+      <img 
+      src="https://1000logos.net/wp-content/uploads/2018/11/GitHub-logo.png" 
+      alt="GitHub Logo"
+      width="150" 
+      height="135"
       >
     
     </a>
@@ -429,50 +464,19 @@ position: absolute;
 
   <div class="links" style="display:none">
 
-    <h2> If you want more details about the app checkout our Github project</h2>
-    <a href="https://github.com/13w13/Hate-speech-detection-Engine">
-      <img 
-      src="https://1000logos.net/wp-content/uploads/2018/11/GitHub-logo.png" 
-      alt="GitHub Logo"
-      width="150" 
-      height="150"
-      >
-    
-    </a>
-
+    <h1>Description of our Predictive Model </h1>
+ 
 
   </div>
 
+  <!-- Onglet HP -->
+
   <div class="login" style="display:block">
 
-    <img 
-    class="content" 
-    src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
-    alt="image" 
-    width="150" 
-    height="150">
 
-    <h1>Tweets Analyser   </h1>
-      <h4> Enter the tweet you want to analyse :</h4>
+    <h1> Welcome to our Hate Speech Analysor website!  </h1>
 
-      <!-- Main Input For Receiving Query to our ML -->
-      <form action="{{ url_for('predict')}}"method="post">
-        <!--
-        <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
-        <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
-        -->
-        <input type="text" name="fuel" placeholder="Enter the message ... " required="required" />
-
-        <button type="submit" class="btn">Predict</button>
-      </form>
-
-      {{ prediction_text }}
-
-      <h1>Upload your CSV file</h1>
-      <form method="POST" action="/predict_csv/file" enctype="multipart/form-data">
-      <p><input type="file" name="file"></p>
-        <button type="submit" class="btn">Submit</button>
-      </form>
+      
     
   </div>
 
@@ -481,6 +485,39 @@ position: absolute;
 </html>
 
 <script>
+
+var tweet_div =  document.getElementsByClassName("tweet");
+
+var csv_div =  document.getElementsByClassName("csv");
+
+
+display_tweet = function() {
+
+  for(var i = 0; i < tweet_div.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    tweet_div[i].style.display = "block"; // depending on what you're doing
+  } 
+
+  for(var i = 0; i < csv_div.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    csv_div[i].style.display = "none"; // depending on what you're doing
+  } 
+}
+
+display_csv = function() {
+
+  for(var i = 0; i < tweet_div.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    tweet_div[i].style.display = "none"; // depending on what you're doing
+  } 
+
+  for(var i = 0; i < csv_div.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    csv_div[i].style.display = "block"; // depending on what you're doing
+  } 
+}
+
+
 
 var project_btn = document.getElementById("project");
 
