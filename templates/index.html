@@ -104,17 +104,23 @@ body {
 
 .login {
   position: absolute;
-	top: 20%;
+	top: 50%;
 	left: 45%;
 	margin: -150px 0 0 -150px;
 	width:600px;
 	height:100px;
   scroll-behavior: smooth;
+  animation: drop 1.5s ease;
 }
 
 .login h1 { 
-  color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:center; 
+  color: #fff; 
+  text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); 
+  letter-spacing:1px; 
+  text-align:center; 
   font-size: 45px;
+  
+  
 }
 
 .login h4 { 
@@ -158,7 +164,38 @@ margin-left:100px;
 vertical-align: middle;
 }
 
-/*CSS csv file */
+@keyframes drop {
+  10% {
+    opacity: : 0;
+    transform: translateY(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-0px);
+  }
+}
+
+/*CSS responsive file */
+
+/* Nouvelles règles si la fenêtre fait au plus 1024px de large */
+@media screen and (max-width:980px)
+{
+    .login h1
+    {
+      display: block ; 
+      position : left;           
+      font-size: 1em;
+    }
+
+    #resources
+
+    { font-size: 1em;
+    }
+
+   
+
+}
+
 
 
 /* CSS Analyser */
@@ -220,6 +257,38 @@ vertical-align: middle;
 
 
 /* CSS Project */ 
+
+body {
+  overflow-x: hidden;
+}
+
+.project {
+  opacity: 1;
+  transition: 500ms;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+html.is-animating .project {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+html.is-leaving .project {
+  opacity: 0;
+  transform: translateX(0);
+}
+
+
+
+/* .transition-swipe {
+  transition: 500ms;
+  transform: translateY(0);
+}
+
+html.is-animating .transition-swipe {
+  transform: translateY(100px);
+} */
 
 .project {
 	position: absolute;
@@ -284,12 +353,15 @@ input[type=radio] {
 
 
 <!DOCTYPE html>
+
 <html >
-
-
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=320" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
   <title>Twitter Hate Speech Messages</title>
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'> 
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
@@ -305,7 +377,7 @@ input[type=radio] {
 <body>
 
 
-  <div id="mySidenav" class="sidenav">
+  <div id="mySidenav" class="sidenav" >
     <a id="project">The Project</a>
     <a id="team">The Team</a>
     <a id="analyser">Tweets Analyser</a>
@@ -391,7 +463,7 @@ input[type=radio] {
   <div class="team" style="display:none">
 
     <h1> Data Zoo from Toulouse Business School </h1>
-    <a href="https://www.dpadvantage.co.uk/data-zoo/">Reference</a>
+    <a target="_blank" href="https://www.dpadvantage.co.uk/data-zoo/">Reference</a>
     <p> 
       Antoine Settelen, the data Whinger 🙅‍♂️ <br>
       Alexandra Amiens, the data Ninja 🦸‍♀️ <br>
