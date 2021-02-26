@@ -71,11 +71,11 @@ def predict():
     #app.logger.info(type(tweet))
     output = "tata"
     
-    return render_template('index.html', prediction_text='Is it an hate message? :{}'.format(output))
+    return render_template('predict.html', prediction_text='Is it an hate message? :{}'.format(output))
 
 @app.route('/predict_csv',methods=['POST'])
 def predict_csv():
-    return render_template('index.html', prediction_text='Is it an hate message? :{}'.format('/predict_csv/toto'))
+    return render_template('predict.html', prediction_text='Is it an hate message? :{}'.format('tutu'))
 
 @app.route('/predict_csv/file',methods=['POST'])
 def predict_csv_file():
