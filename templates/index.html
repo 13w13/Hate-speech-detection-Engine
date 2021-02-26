@@ -22,7 +22,7 @@
 
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
-html { width: 100%; height:100%; overflow:hidden; }
+html { width: 100%; height:100%; overflow:hidden; overflow-y: scroll; }
 
 body {
 	width: 100%;
@@ -33,6 +33,7 @@ body {
 	font-size: 20px;
 	text-align:center;
 	letter-spacing:2px;
+  
 	/* background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
 	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
 	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
@@ -104,7 +105,7 @@ body {
 
 .login {
   position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 45%;
 	margin: -150px 0 0 -150px;
 	width:600px;
@@ -224,6 +225,13 @@ vertical-align: middle;
 input[type=radio] {
   display: inline;
 }
+
+label{
+  position: relative;
+  color:#ffffff;
+
+}
+
 .box {
     height: 90px;
     padding-right: 80%;
@@ -335,7 +343,6 @@ html.is-leaving .project {
   transition: 500ms;
   transform: translateY(0);
 }
-
 html.is-animating .transition-swipe {
   transform: translateY(100px);
 } */
@@ -349,6 +356,11 @@ html.is-animating .transition-swipe {
 	height:100px;
   text-align: justify;
   font-size: 18px;
+}
+
+.project p {
+font-size: 14px;
+text-align: justify;
 }
 
 /* CSS Links */
@@ -378,7 +390,7 @@ position: absolute;
   font-size: 18px;
 }
 
-/* animation team */
+/* animation cat the team */
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:300');
 
@@ -396,7 +408,7 @@ position: absolute;
    justify-content: flex-end;
    align-items: flex-end;
    transition: all 0.2s ease;
-
+   
    .bg_links {
       width: $size;
       height: $size;
@@ -410,7 +422,7 @@ position: absolute;
       position: absolute;
    }
 
-   .logo {
+    .logo {
       width: $size;
       height: $size;
       z-index: 9;
@@ -524,7 +536,7 @@ position: absolute;
          }
       }
    }
-}
+} 
 
 .content {
   height: 100vh;
@@ -532,6 +544,7 @@ position: absolute;
   justify-content: center;
   width: 100%;
   position: absolute;
+  top: 143%
 }
 
 .wall {
@@ -857,6 +870,46 @@ position: absolute;
   line-height: 52px;
 }
 
+/* CSS Footer */
+footer{
+  background-color: #00acee ;
+  height: auto;
+  width: 100vw;
+  padding: 5px;
+  padding-bottom: 0;
+  color: #fff ;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 0;
+
+
+  
+  /* color:#00acee;
+  padding: 5px;
+  display: flex;
+  font-size: 12px; */
+}
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-content p{
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.footer-content span{
+  text-transform: uppercase;
+  opacity: .4;
+
+}
 
   </style>
 
@@ -904,10 +957,14 @@ position: absolute;
       width="100" 
       height="100">
     </a>
-
-    <footer class= "footer" >
-  
   </div>
+
+  <footer>
+    <div class="footer-content" >
+      <p>Copyright &copy;2021, Antoine Settelen, Alexandra Amiens, Simon Weiss, Edgar Jullien, Julieva Cohen-Sors. Designed by <span>Heruko</span></p>
+    </div>
+  </footer>
+ 
 
  <!-- Onglet Tweets Analyser-->
 
@@ -926,21 +983,21 @@ position: absolute;
   <div class="box">
     <div class="left">
   
-         <input type="radio" id="huey" name="drone" value="huey" onclick="display_tweet()" checked>
+         <input type="radio" id="huey" name="drone" value="huey" onclick="display_tweet()" >
          <label for="huey">Tweet</label>
   
     </div>
 
     <div class="right">
        
-          <input type="radio" id="dewey" name="drone" value="dewey" onclick="display_csv()">
+          <input type="radio" id="dewey" name="drone" value="dewey" onclick="display_csv()" checked>
           <label for="dewey">CSV</label>
        
     </div>
 
   </div>
 
-  <div class="tweet" style="display:block" >
+  <div class="tweet" style="display:none" >
       <!-- Main Input For Receiving Query to our ML -->
       <h4> Enter the tweet you want to analyse :</h4>
       <form action="{{ url_for('predict')}}" method="post" >
@@ -956,7 +1013,7 @@ position: absolute;
 
   </div>
 
-    <div class="csv" style="display:none">
+    <div class="csv" style="display:block">
       <h4>Upload your CSV file</h4>
       <form method="POST" action="/predict_csv/file" enctype="multipart/form-data">
       <p><input type="file" name="file"></p>
@@ -971,15 +1028,38 @@ position: absolute;
 
   <div class="project" style="display:none">
     
-    <h1>Our Mission </h1>
-         <p>The idea of this work is to develop a new application able to detect hate speech and offensive messages. For a given tweet/retweet, the application is able to classify the comment as a hate message, an offensive message or neither hate speech nor offensive.</p>
+  <h1>Our Mission </h1>
+  <p>The idea of this work is to develop a new application able to detect hate speech and offensive messages. For a given tweet/retweet, the application is able to classify the comment as a hate message, 
+           an offensive message or neither hate speech nor offensive.</p>
 
   <h3>What is an “hate speech message” ? </h3>
-
+  <p>
 • Encyclopedia of the American Constitution: “Hate speech is speech that attacks a person or group on the basis of attributes such as race, religion, ethnic origin, national origin, sex, disability, sexual orientation, or gender identity.” <br>
 • Facebook: “We define hate speech as a direct attack on people based on what we call protected characteristics—race, ethnicity, national origin, religious affiliation, sexual orientation, caste, sex, gender, gender identity, and serious disease or disability. <br>
 • Twitter: “Hateful conduct: You may not promote violence against or directly attack or threaten other people on the basis of race, ethnicity, national origin, sexual orientation, gender, gender identity, religious affiliation, age, disability, or serious disease.” <br>
 • In our definition we will consider hate speech as message to incite violence or hate, to attack or diminish. It has specific targets and humor can be considered hate speech.<br>
+  </p>
+
+  <h3> Why this project? </h3>
+  <p>
+    The online hate speech messages is proliferating and especially on Twitter. Users can write what ever their want even under fake identities. 
+    The content of hateful tweets could be toward anything and anyone, and if the writor is famous on Tweeter it could have huge social consequences. This phenomenon could also target companies that have difficulties to control unfair hate message toward them.
+
+  </p>
+
+<h3> For who? </h3>
+<p>
+This app can be use for any company who wants to prevent and control hateful messages from Twitter.
+</p>
+<h3> How to use it? </h3>
+<p>
+First, you have to scrap all tweets related to hastags or keywords you are interested in from <a target="_blank" href="https://developer.twitter.com/en/docs/twitter-api" > the Twitter API </a>. Then, you can upload on the dedicated field of our website the tweets csv. 
+At the end, our hate speech analysor will give you back your csv file with an additional predictive column.
+</p>
+
+<br> <br> <br> <br> <br> <br>
+
+
   </div>
 
 <!-- Onglet Team-->
@@ -988,6 +1068,7 @@ position: absolute;
 
     <h1> Data Zoo from Toulouse Business School </h1>
     <a target="_blank" href="https://www.dpadvantage.co.uk/data-zoo/">Reference</a>
+    <h3> The Data Scientists Team </h3>
     <p> 
       Antoine Settelen, the data Whinger 🙅‍♂️ <br>
       Alexandra Amiens, the data Ninja 🦸‍♀️ <br>
@@ -1033,9 +1114,8 @@ position: absolute;
 
   <div class="resources" style="display:none">
 
-    <p> More understanding about the App environment:  </p> 
+    <p> • More understanding about the App environment:  </p> 
 
-      <br> 
     <a target="_blank" href="https://palletsprojects.com/p/flask/">
       <img 
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/1200px-Flask_logo.svg.png" 
@@ -1070,8 +1150,8 @@ position: absolute;
     <br> 
 
     
-    <p> If you want more details about the app checkout our Github project:
-      <br> 
+    <p> • If you want more details about the app checkout our Github project:
+      <br> <br>
       
     <a target="_blank" href="https://github.com/13w13/Hate-speech-detection-Engine">
       <img 
@@ -1226,6 +1306,7 @@ position: absolute;
        </g>
        </svg>
      </div><!-- /#cat-->
+
   
     
 
@@ -1482,10 +1563,8 @@ for(var i = 0; i < analyser.length; i++){
 /*
 //because read.csv is in utils
 ocpu.seturl("//public.opencpu.org/ocpu/library/utils/R")
-
 //actual handler
 $("#submitbutton").on("click", function(){
-
     //arguments
     var myheader = $("#header").val() == "true";
     var myfile = $("#csvfile")[0].files[0];
@@ -1494,10 +1573,8 @@ $("#submitbutton").on("click", function(){
         alert("No file selected.");
         return;
     }
-
     //disable the button during upload
     $("#submitbutton").attr("disabled", "disabled");
-
     //perform the request
     var req = ocpu.call("read.csv", {
         "file" : myfile,
@@ -1523,37 +1600,30 @@ $("#submitbutton").on("click", function(){
 // Onglet login
 /*
 login_btn.onclick = function(){
-
   for(var i = 0; i < team.length; i++){
     //login[i].style.visibility = "hidden"; // or
     team[i].style.display = "none"; // depending on what you're doing
   }
-
   for(var i = 0; i < resources.length; i++){
     //login[i].style.visibility = "hidden"; // or
     resources[i].style.display = "none"; // depending on what you're doing
   }
-
   for(var i = 0; i < project.length; i++){
     //login[i].style.visibility = "hidden"; // or
     project[i].style.display = "none"; // depending on what you're doing
   }
-
   for(var i = 0; i < analyser.length; i++){
     //login[i].style.visibility = "hidden"; // or
     analyser[i].style.display = "none"; // depending on what you're doing
   }
-
   for(var i = 0; i < links.length; i++){
     //login[i].style.visibility = "hidden"; // or
     links[i].style.display = "none"; // depending on what you're doing
   }
-
   for(var i = 0; i < login.length; i++){
     //login[i].style.visibility = "hidden"; // or
     login[i].style.display = "block"; // depending on what you're doing
   }
-
 }
 */
 
