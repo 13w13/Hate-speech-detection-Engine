@@ -1,40 +1,1636 @@
+<head>
+  <style type="text/css">
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans); 
+
+ 
+.btn{
+  background-color:rgb(74, 182, 74); /* Green */
+  border: none;
+  text-align: center;
+  border-radius: 10px 100px / 120px;
+  padding: 30px 40px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-family: 'Gotham', sans-serif;
+  font-weight: bold;
+  color: rgb(245, 245, 243);
+  margin: 10px ;
+  cursor: pointer;
+} 
+.btn:hover { background-color: #65f14c; box-shadow: 0 12px 16px 0 rgba(199, 189, 189, 0.24),0 17px 50px 0 rgba(155, 22, 22, 0.19); }
+
+* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
+
+html { width: 100%; height:100%; overflow:hidden; overflow-y: scroll; }
+
+body {
+	width: 100%;
+	height:100%;
+	font-family: 'Gotham', sans-serif;
+	background: #00acee;
+	color: #fff;
+	font-size: 20px;
+	text-align:center;
+	letter-spacing:2px;
+  
+	/* background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 ); */
+
+}
+
+
+
+
+/* Style the links inside the sidenav */
+#mySidenav a {
+  position: absolute; /* Position them relative to the browser window */
+  left: -70px; /* Position them outside of the screen */
+  transition: 0.3s; /* Add transition on hover */
+  padding: 30px; /* 15px padding */
+  width: 350px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 25px; /* Increase font size */
+  font-family: 'Gotham' ;
+  color: white; /* White text color */
+  border-radius: 0 10px 15px 0; /* Rounded corners on the top right and bottom right side */
+  border-radius: 10px 100px / 120px;
+
+}
+
+#mySidenav a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+/* The about link: 20px from the top with a green background */
+#project {
+  top: 10px;
+  background-color: #ee1818; /* Red */
+}
+
+#team {
+  top: 80px;
+  background-color: #f3a515; /* Orange */
+}
+
+#analyser {
+  top: 140px;
+  background-color: #ebe70b; /* Yellow */
+}
+
+#resources {
+  top: 200px;
+  background-color: rgb(40, 219, 55) /* Green */
+}
+
+#links {
+  top: 260px;
+  background-color: rgb(40, 58, 219) /* Blue */
+}
+
+#tbs {
+  top: 320px;
+  background-color: rgb(207, 143, 233) /* Purple */
+  
+  
+}
+
+
+
+/* CSS login */
+
+.login {
+  position: absolute;
+	top: 40%;
+	left: 45%;
+	margin: -150px 0 0 -150px;
+	width:600px;
+	height:100px;
+  scroll-behavior: smooth;
+  animation: drop 3s ease;
+}
+
+.login h1 { 
+  color: #fff; 
+  text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); 
+  letter-spacing:1px; 
+  text-align:center; 
+  font-size: 45px;
+  
+  
+}
+
+.login h4 { 
+  color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:center; 
+  font-size: 20px;
+  font-weight: lighter;
+  
+}
+
+.login h5 {
+  color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:center; 
+  font-size: 20px;
+  font-weight: lighter;
+  font-family: 'Gotham';
+}
+
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: #00acee (255,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px #00acee(0,0,0,0.3);
+	border: 1px solid #00acee(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px #00acee(100,100,100,0.2), 0 1px 1px #00acee(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px #00acee(100,100,100,0.4), 0 1px 1px #00acee(255,255,255,0.2); }
+
+.content img{
+  margin-top:50px;
+margin-left:100px;
+vertical-align: middle;
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-350px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-0px);
+  }
+} 
+
+
+/*CSS animation HP */
+
+#cat {
+  max-width: 300px;
+  margin: 0 auto;
+}
+#cauda {
+  width: 72px;
+  height: 79px;
+  animation: cauda 6s linear infinite;
+  transform-origin: right bottom;
+  transform-box: fill-box;
+}
+
+@keyframes cauda {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+
+/*CSS responsive file */
+
+/* Nouvelles règles si la fenêtre fait au plus 1024px de large */
+@media screen and (max-width:980px)
+{
+    .login h1
+    {
+      display: block ; 
+      position : left;           
+      font-size: 1em;
+    }
+
+}
+
+
+
+/* CSS Analyser */
+
+input[type=radio] {
+  display: inline;
+}
+
+label{
+  position: relative;
+  color:#ffffff;
+
+}
+
+.box {
+    height: 90px;
+    padding-right: 80%;
+    padding-left: 15%;
+}    
+
+.box .left {
+    float: left;
+    height: 200px;
+}
+
+.box .right {
+  float: right;
+    height: 100px;
+    width: 260px;
+    margin-right: -260px;
+    
+}
+
+.csv{
+  color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:center; 
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.analyser {
+	position: absolute;
+	top: 20%;
+	left: 45%;
+	margin: -150px 0 0 -150px;
+	width:550px;
+	height:100px;
+}
+
+.analyser h1 { 
+  color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:center; 
+  font-size: 50px;
+}
+
+.analyser h4 { 
+  color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:left; 
+  font-size: 20px;
+  font-weight: lighter;
+  width:1050px;
+  
+}
+
+.analyser h5 {
+  color: #fff; text-shadow: 0 0 10px rgba(194, 159, 191, 0.3); letter-spacing:1px; text-align:left; 
+  font-size: 20px;
+  font-weight: lighter;
+  font-family: 'Gotham';
+}
+
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: #00acee (255,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: rgb(8, 1, 1);
+	text-shadow: 1px 1px 1px #00acee(0,0,0,0.3);
+	border: 1px solid #00acee(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px #00acee(100,100,100,0.2), 0 1px 1px #00acee(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px #00acee(100,100,100,0.4), 0 1px 1px #00acee(255,255,255,0.2); }
+
+.content img{
+  margin-top:50px;
+margin-left:100px;
+vertical-align: middle;
+}
+
+
+/* CSS Project */ 
+
+body {
+  overflow-x: hidden;
+}
+
+.project {
+  opacity: 1;
+  transition: 500ms;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+html.is-animating .project {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+html.is-leaving .project {
+  opacity: 0;
+  transform: translateX(0);
+}
+
+
+
+/* .transition-swipe {
+  transition: 500ms;
+  transform: translateY(0);
+}
+html.is-animating .transition-swipe {
+  transform: translateY(100px);
+} */
+
+.project {
+	position: absolute;
+	top: 15%;
+	left: 40%;
+	margin: -100px 0 0 -100px;
+	width:800px;
+	height:100px;
+  text-align: justify;
+  font-size: 18px;
+}
+
+.project p {
+font-size: 14px;
+text-align: justify;
+}
+
+/* CSS Links */
+
+.links {
+position: absolute;
+	top: 20%;
+	left: 40%;
+	margin: -100px 0 0 -100px;
+	width:800px;
+	height:100px;
+  text-align: justify;
+  font-size: 18px;
+}
+
+
+/* CSS Team */
+
+.team {
+position: absolute;
+	top: 15%;
+	left: 40%;
+	margin: -100px 0 0 -100px;
+	width:800px;
+	height:100px;
+  text-align: justify;
+  font-size: 18px;
+}
+
+/* animation cat the team */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:300');
+
+.about {
+   $cubic: cubic-bezier(0.64, 0.01, 0.07, 1.65);
+   $transition: 0.6s $cubic;
+   $size: 40px;
+   position: fixed;
+   z-index: 10;
+   bottom: 10px;
+   right: 10px;
+   width: $size;
+   height: $size;
+   display: flex;
+   justify-content: flex-end;
+   align-items: flex-end;
+   transition: all 0.2s ease;
+   
+   .bg_links {
+      width: $size;
+      height: $size;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(#000000, 0.2);
+      border-radius: 100%;
+      backdrop-filter: blur(5px);
+      position: absolute;
+   }
+
+    .logo {
+      width: $size;
+      height: $size;
+      z-index: 9;
+      background-image: url(https://rafaelalucas91.github.io/assets/codepen/logo_white.svg);
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: 10px 7px;
+      opacity: 0.9;
+      transition: all 1s 0.2s ease;
+      bottom: 0;
+      right: 0;
+   }
+
+   .social {
+      opacity: 0;
+      right: 0;
+      bottom: 0;
+
+      .icon {
+         width: 100%;
+         height: 100%;
+         background-size: 20px;
+         background-repeat: no-repeat;
+         background-position: center;
+         background-color: transparent;
+         display: flex;
+         transition: all 0.2s ease, background-color 0.4s ease;
+         opacity: 0;
+         border-radius: 100%;
+      }
+
+      &.portfolio {
+         transition: all 0.8s ease;
+
+         .icon {
+            background-image: url(https://rafaelalucas91.github.io/assets/codepen/link.svg);
+         }
+      }
+
+      &.dribbble {
+         transition: all 0.3s ease;
+         .icon {
+            background-image: url(https://rafaelalucas91.github.io/assets/codepen/dribbble.svg);
+         }
+      }
+
+      &.linkedin {
+         transition: all 0.8s ease;
+         .icon {
+            background-image: url(https://rafaelalucas91.github.io/assets/codepen/linkedin.svg);
+         }
+      }
+   }
+
+   &:hover {
+      width: 105px;
+      height: 105px;
+      transition: all $transition;
+
+      .logo {
+         opacity: 1;
+         transition: all 0.6s ease;
+      }
+
+      .social {
+         opacity: 1;
+
+         .icon {
+            opacity: 0.9;
+         }
+
+         &:hover {
+            background-size: 28px;
+            .icon {
+               background-size: 65%;
+               opacity: 1;
+            }
+         }
+
+         &.portfolio {
+            right: 0;
+            bottom: calc(100% - 40px);
+            transition: all 0.3s 0s $cubic;
+            .icon {
+               &:hover {
+                  background-color: #698fb7;
+               }
+            }
+         }
+
+         &.dribbble {
+            bottom: 45%;
+            right: 45%;
+            transition: all 0.3s 0.15s $cubic;
+            .icon {
+               &:hover {
+                  background-color: #ea4c89;
+               }
+            }
+         }
+
+         &.linkedin {
+            bottom: 0;
+            right: calc(100% - 40px);
+            transition: all 0.3s 0.25s $cubic;
+            .icon {
+               &:hover {
+                  background-color: #0077b5;
+               }
+            }
+         }
+      }
+   }
+} 
+
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  top: 143%
+}
+
+.wall {
+  background-color: #d6d6d6;
+  width: 500px;
+  height: 70px;
+  bottom: 30%;
+  position: absolute;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.wall::before, 
+.wall::after {
+  width: 20px;
+  height: 40px;
+  left: 20%;
+  bottom: -40px;
+  background-color: #737373;
+  position: absolute;
+  content: '';
+  border-radius: 0px 0px 20px 20px;
+}
+
+.wall::after {
+  left: 75%;
+}
+
+.cat {
+  width: 200px;
+  height: 250px;
+  background-color: #e4a547;
+  border-radius: 100%;
+  position: absolute;
+  bottom: calc(30% + 20px);
+  box-shadow: inset 0px -20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cat::after {
+  width: 60%;
+  height: 60%;
+  left: 20%;
+  top: 45%;
+  background-color: white;
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  opacity: 0.2;
+}
+
+.ears {
+  position: relative;
+  z-index: -1;
+}
+
+.ears span {
+  width: 60px;
+  height: 60px;
+  background-color: #d47151;
+  position: absolute;
+  top: -5px;
+  border: solid 8px #e4a547;
+  border-radius: 10px; 
+}
+
+.ears span:nth-child(1) {
+  left: 30px;
+  box-shadow: inset 0px 5px 0px rgba(0, 0, 0, 0.1);
+  animation: ear1 8s ease infinite;
+}
+
+    @keyframes ear1 {
+      0%, 80%, 100% { transform: rotate(20deg);}
+      90% {transform: rotate(8deg);}
+    }
+
+.ears span:nth-child(2) {
+  right: 30px;
+  box-shadow: inset 0px 5px 0px rgba(0, 0, 0, 0.1);
+  animation: ear2 1s ease infinite;
+}
+
+    @keyframes ear2 {
+      0%, 80%, 100% {transform: rotate(-20deg);}
+      90% {transform: rotate(-8deg);}
+    }
+
+.eyes span {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  border-radius: 100%;
+  background-color: white; 
+}
+
+.eyes span:nth-child(1) {
+  left: 50px;
+}
+
+.eyes span:nth-child(2) {
+  right: 50px;
+}
+
+.eyes span:nth-child(1)::after,
+.eyes span:nth-child(2)::after {
+  width: inherit;
+  height: inherit;
+  left: 0;
+  position: absolute;
+  content: '';
+  z-index:1;
+  border-radius: 100%;
+  animation: blink 2.7s ease-in-out infinite;
+}
+
+    @keyframes blink {
+      0%, 70% {box-shadow: inset 0px 5px 0px #ce8314;}
+      85% {box-shadow: inset 0px 40px 0px #ce8314;}
+      100% {box-shadow: inset 0px 5px 0px #ce8314;}
+    }
+
+.eyes span:nth-child(3),
+.eyes span:nth-child(4) {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  box-shadow: none;
+  top: 45px;
+  left: 65px;
+  border-radius: 100%;
+}
+.eyes span:nth-child(4) {
+  left: 125px;
+}
+
+.eyes span:nth-child(1)::before {
+  left: 35%;
+}
+
+.eyes span:nth-child(2)::before {
+  right: 35%;
+}
+
+.nose {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 70px;
+  left: calc(50% - 12px);
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #d47151;
+  z-index: 1;
+  animation: nose 3s ease infinite;
+}
+
+    @keyframes nose {
+      0%, 80%, 100%{transform: rotate(0deg);}
+      85%, 95% {transform: rotate(-2deg);}
+      90% {transform: rotate(2deg);}
+    }
+
+.nose span {
+  width: 120px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: -6px;
+  left: -125px;
+  border-radius: 5px; 
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.nose span:nth-child(2) {
+  left: 5px;
+}
+
+.nose span::after,
+.nose span::before  {
+  width: inherit;
+  height: inherit;
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  top: -10px;
+  width: 110px;
+  left: 10px;
+  border-radius: inherit;
+  transform: rotate(10deg);
+}
+
+.nose span:nth-child(1)::before {
+    transform: rotate(-10deg);
+    top: 10px;
+    left: 10px;
+}
+
+.nose span:nth-child(2)::after{
+    top: -10px;
+    transform: rotate(-10deg);
+    left: 0px;
+}
+
+.nose span:nth-child(2)::before {
+    top: 10px;
+    left: 0px;
+}
+
+.mouth {
+  font-family: 'Nunito', sans-serif;
+  color: #d28422;
+  font-size: 30px;
+  transform: rotate(90deg);
+  top: 72px;
+  position: absolute;
+  left: calc(50% - 10px);
+  letter-spacing: 1px;
+  font-weight: 100;
+  animation: mouth 6s ease infinite;
+}
+
+    @keyframes mouth {
+      0%, 80%, 90%, 100%{top: 75px}
+      85%, 95% {top: 73px}
+    }
+
+.mouth::after {
+  width: 2px;
+  height: 15px;
+  content: '';
+  position: absolute;
+  background-color: #d28422; 
+  top: 12px;
+  left: -1px;
+  transform: rotate(90deg);
+}
+
+.paws {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  border-radius: 100%; 
+  z-index: 1;
+}
+
+.paws span {
+  width: 30px;
+  height: 30px;
+  background-color: brown;
+  position: absolute;
+  bottom: -160px;
+  border-radius: 100%; 
+  opacity: 0.3;
+  box-shadow: inset 5px 0px 0px rgba(0, 0, 0, 0.5)
+}
+
+.paws span:nth-child(1) {
+  left: 50px;
+}
+.paws span:nth-child(2) {
+  left: 120px;
+}
+
+.tail {
+  width: 100px;
+  height: 15px;
+  position: absolute;
+  bottom: 50px;
+  border-radius: 30px; 
+  z-index: 1;
+  right: -65px;
+  background-color: #e4a547;
+  z-index: -1;
+  animation: tail 3s ease-in-out infinite alternate;
+}
+    @keyframes tail {
+      0% {right:-65px;}
+      50% {transform:rotate(0deg);}
+      60% {transform:rotate(-180deg);}
+      100% {right:145px; transform:rotate(-180deg);}
+    }
+
+.tail::after {
+  width: 25%;
+  height: inherit;
+  content: '';
+  position: absolute;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: white; 
+  right: 0px;
+  opacity: 0.2;
+}
+
+.tail::before {
+  width: 10%;
+  height: inherit;
+  content: '';
+  position: absolute;
+  border-radius: 0px;
+  background-color: black; 
+  right: 25%;
+  opacity: 0.1;
+}
+/* View Compiled */
+
+
+/* CSS Resources */
+
+.resources{
+position: absolute;
+	top: 15%;
+	left: 40%;
+	margin: -100px 0 0 -100px;
+	width:800px;
+	height:100px;
+  text-align: left;
+  font-size: 18px;
+  line-height: 52px;
+}
+
+/* CSS Footer */
+footer{
+  background-color: #00acee ;
+  height: auto;
+  width: 100vw;
+  padding: 5px;
+  padding-bottom: 0;
+  color: #fff ;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 0;
+
+
+  
+  /* color:#00acee;
+  padding: 5px;
+  display: flex;
+  font-size: 12px; */
+}
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-content p{
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.footer-content span{
+  text-transform: uppercase;
+  opacity: .4;
+
+}
+
+  </style>
+
+
+</head>
+
+
 <!DOCTYPE html>
+
 <html >
 
 <head>
   <meta charset="UTF-8">
-  <title>CO2 Emission Predictor</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=320" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Twitter Hate Speech Messages</title>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'> 
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!-- <link re
+  l="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+
+  
 
 </head>
 
 <body>
- <div class="login">
-	<h1>Tweet Analyser TYTY</h1>
-     <h4> Enter the tweet you want to analyse :</h4>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form target="_blank" action="/predict" method="POST">
-    	<!--
-      <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
-      <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
-      -->
-		  <input type="text" name="fuel" placeholder="Write some words..." required="required" />
+  
 
-      <button type="submit" class="btn">Predict</button>
-    </form>
+  <div id="mySidenav" class="sidenav" >
+    <a id="project">The Project</a>
+    <a id="team">The Team</a>
+    <a id="analyser">Tweets Analyser</a>
+    <a id="resources">Resources</a>
+    <a id="links">The Model</a>
+    <a target="_blank" href="https://www.tbs-education.fr/" id="tbs"> 
+      <img
+      class="logo"
+      src= "https://www.tbs-education.fr/content/uploads/sites/4/2020/02/1-logo-tbs-2019-rond-cmjn-fond-rouge.png"
+      alt="image" 
+      width="100" 
+      height="100">
+    </a>
+  </div>
 
-   <br>
-   <br>
-   {{ prediction_text }}
+  <footer>
+    <div class="footer-content" >
+      <p>Copyright &copy;2021, Antoine Settelen, Alexandra Amiens, Simon Weiss, Edgar Jullien, Julieva Cohen-Sors. Designed by <span>Heruko</span></p>
+    </div>
+  </footer>
+ 
 
- </div>
+ <!-- Onglet Tweets Analyser-->
+
+ <div class="analyser" style="display:none">
+
+  <img 
+  class="contentTW" 
+  src="https://cambridgebrc.nihr.ac.uk/wp-content/uploads/2020/06/twitter-icon-white-transparent-6.jpg.png" 
+  alt="image" 
+  width="150" 
+  height="150">
+
+  <h1>Tweets Analyser   </h1>
+
+
+  <div class="box">
+    <div class="left">
+  
+         <input type="radio" id="huey" name="drone" value="huey" onclick="display_tweet()" >
+         <label for="huey">Tweet</label>
+  
+    </div>
+
+    <div class="right">
+       
+          <input type="radio" id="dewey" name="drone" value="dewey" onclick="display_csv()" checked>
+          <label for="dewey">CSV</label>
+       
+    </div>
+
+  </div>
+
+  <div class="tweet" style="display:none" >
+      <!-- Main Input For Receiving Query to our ML -->
+      <h4> Enter the tweet you want to analyse :</h4>
+      <form action="{{ url_for('predict')}}" method="post" >
+        <!--
+        <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
+        <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
+        -->
+        <input type="text" name="fuel" placeholder="Enter the message ... "/>
+
+        <button type="submit" class="btn">Predict</button>
+      </form>
+      {{ prediction_text }}
+
+  </div>
+
+    <div class="csv" style="display:block">
+      <h4>Upload your CSV file</h4>
+      <form method="POST" action="/predict_csv/file" enctype="multipart/form-data">
+      <p><input type="file" name="file"></p>
+        <button type="submit" class="btn">Predict</button>
+      </form>
+    </div>
+  
+</div>
+ 
+
+ <!-- Onglet The project -->
+
+  <div class="project" style="display:none">
+    
+  <h1>Our Mission </h1>
+  <p>The idea of this work is to develop a new application able to detect hate speech and offensive messages. For a given tweet/retweet, the application is able to classify the comment as a hate message, 
+           an offensive message or neither hate speech nor offensive.</p>
+
+  <h3>What is an “hate speech message” ? </h3>
+  <p>
+• Encyclopedia of the American Constitution: “Hate speech is speech that attacks a person or group on the basis of attributes such as race, religion, ethnic origin, national origin, sex, disability, sexual orientation, or gender identity.” <br>
+• Facebook: “We define hate speech as a direct attack on people based on what we call protected characteristics—race, ethnicity, national origin, religious affiliation, sexual orientation, caste, sex, gender, gender identity, and serious disease or disability. <br>
+• Twitter: “Hateful conduct: You may not promote violence against or directly attack or threaten other people on the basis of race, ethnicity, national origin, sexual orientation, gender, gender identity, religious affiliation, age, disability, or serious disease.” <br>
+• In our definition we will consider hate speech as message to incite violence or hate, to attack or diminish. It has specific targets and humor can be considered hate speech.<br>
+  </p>
+
+  <h3> Why this project? </h3>
+  <p>
+    The online hate speech messages is proliferating and especially on Twitter. Users can write what ever their want even under fake identities. 
+    The content of hateful tweets could be toward anything and anyone, and if the writor is famous on Tweeter it could have huge social consequences. This phenomenon could also target companies that have difficulties to control unfair hate message toward them.
+
+  </p>
+
+<h3> For who? </h3>
+<p>
+This app can be use for any company who wants to prevent and control hateful messages from Twitter.
+</p>
+<h3> How to use it? </h3>
+<p>
+First, you have to scrap all tweets related to hastags or keywords you are interested in from <a target="_blank" href="https://developer.twitter.com/en/docs/twitter-api" > the Twitter API </a>. Then, you can upload on the dedicated field of our website the tweets csv. 
+At the end, our hate speech analysor will give you back your csv file with an additional predictive column.
+</p>
+
+<br> <br> <br> <br> <br> <br>
+
+
+  </div>
+
+<!-- Onglet Team-->
+
+  <div class="team" style="display:none">
+
+    <h1> Data Zoo from Toulouse Business School </h1>
+    <a target="_blank" href="https://www.dpadvantage.co.uk/data-zoo/">Reference</a>
+    <h3> The Data Scientists Team </h3>
+    <p> 
+      Antoine Settelen, the data Whinger 🙅‍♂️ <br>
+      Alexandra Amiens, the data Ninja 🦸‍♀️ <br>
+      Simon Weiss, the data Squirrel 🐿 <br>
+      Edgar Jullien, the data Anarchist 🦹‍♂️ <br>
+      Julieva Cohen-Sors, the data Evangelist 🧚‍♀️
+    </p>
+    <p>
+     Our formation : <a target="_blank" href="https://www.tbs-education.com/program/msc-artificial-intelligence-and-business-analytics/" > MSc Artificial Intelligence and Business Analytics by TBS </a>
+    </p>
+  
+<!-- Cat animation -->
+
+<div class="content">
+    <div class="cat">
+      <div class="ears">
+        <span></span>
+        <span></span>
+      </div>
+      <div class="eyes">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nose">
+        <span></span>
+        <span></span>
+      </div>
+      <div class="mouth">3</div>
+      <div class="paws">
+        <span></span>
+        <span></span>
+      </div>
+      <div class="tail"></div>
+    </div>
+    <div class="wall"></div>
+</div>
+  </div>
+
+
+<!-- Onglet Resources -->
+
+  <div class="resources" style="display:none">
+
+    <p> • More understanding about the App environment:  </p> 
+
+    <a target="_blank" href="https://palletsprojects.com/p/flask/">
+      <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Flask_logo.svg/1200px-Flask_logo.svg.png" 
+      alt="flask Logo"
+      width="150" 
+      height="50"
+      >
+    
+    </a>
+
+    <br> <br> 
+    
+
+    <a target="_blank" href="https://pytorch.org/">
+      <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png" 
+      alt="Pytorch Logo"
+      width="150" 
+      height="50"
+      >
+
+    <br> <br> 
+
+    <a target="_blank" href="https://devcenter.heroku.com/categories/deployment">
+      <img 
+      src="https://logos-download.com/wp-content/uploads/2016/09/Heroku_logo.png" 
+      alt="Heroku Logo"
+      width="150" 
+      height="50"
+      >
+    </a>
+    <br> 
+
+    
+    <p> • If you want more details about the app checkout our Github project:
+      <br> <br>
+      
+    <a target="_blank" href="https://github.com/13w13/Hate-speech-detection-Engine">
+      <img 
+      src="https://1000logos.net/wp-content/uploads/2018/11/GitHub-logo.png" 
+      alt="GitHub Logo"
+      width="150" 
+      height="135"
+      >
+    
+    </a>
+
+    
+
+  </div>
+
+<!-- Onglet Links -->
+
+  <div class="links" style="display:none">
+
+    <h1>Description of our Predictive Model </h1>
+ 
+
+  </div>
+
+  <!-- Onglet HP -->
+
+  <div class="login" style="display:block">
+
+
+    <h1> Welcome to our Hate Speech Analysor website!  </h1>
+
+    <div id="cat">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 400 500" enable-background="new 0 0 400 500" xml:space="preserve">
+       <g id="cauda" width="72" height="79">
+         <path id="cauda_in" fill="#333333" d="M164.7,376.7l6.2,9.9c0,0-15.1,13-33.7,16.8c-13.4,2.8-61.1,6.4-61.1-41.8
+           s33.6-56.2,18.4-15.5c0,0-5.5,17.1,1.6,28.6s27.4,21.7,45.8,12.2L164.7,376.7z" width="72" height="79"/>
+       </g>
+       <g>
+         <g>
+           <path fill="#4D4D4D" d="M242.2,95L242.2,95l-0.1-0.1C242.1,94.9,242.1,95,242.2,95z"/>
+           <path fill="#4D4D4D" d="M111.9,78.4L111.9,78.4C128.4,67.2,140,37.8,140,37.8l10.4,9.1c0,0-3-34.6,5.2-26.4s30.7,26,30.7,26
+             s-4.1-21.9,0-17.8c4,4,20.8,38.6,53.5,64.5c-18.5-14.5-42.9-28.1-74-41.4C144.8,60.8,127,69.5,111.9,78.4z"/>
+           <g>
+             <path fill="#4D4D4D" d="M242,94.9c-0.8-0.6-1.5-1.2-2.2-1.7C240.5,93.7,241.3,94.3,242,94.9z"/>
+             <path fill="#4D4D4D" d="M243.1,95.8c0.5-0.6,0.4-1.5-0.2-2l0,0c-0.7-0.6-1.5-1.2-2.2-1.8l0,0c0,0,0,0-0.1,0l0,0l0,0l0,0l0,0l0,0
+               l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c-0.4-0.2-0.8-0.2-1.1-0.1l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0
+               l0,0l0,0l0,0c0,0,0,0-0.1,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c0,0,0,0,0,0.1l0,0
+               c-0.2,0.3-0.3,0.6-0.3,1l0,0l0,0l0,0c0,0.4,0.2,0.7,0.5,0.9l0,0c0.1,0.1,0.2,0.2,0.3,0.3l0,0c0.6,0.5,1.3,1,1.9,1.5l0,0l0.9-1.1
+               l-0.9,1.1c0.3,0.2,0.6,0.3,0.9,0.3l0,0C242.5,96.3,242.9,96.1,243.1,95.8L243.1,95.8z"/>
+           </g>
+         </g>
+       </g>
+       <g>
+         <g>
+           <path fill="#333333" d="M158.8,95.7L158.8,95.7l0.1-0.1C158.8,95.7,158.8,95.7,158.8,95.7z"/>
+           <path fill="#333333" d="M289,79.2L289,79.2c-16.4-11.3-28.1-40.7-28.1-40.7l-10.4,9.1c0,0,3-34.6-5.2-26.4s-30.7,26-30.7,26
+             s4.1-21.9,0-17.8c-4,4-20.8,38.6-53.5,64.5c18.5-14.5,42.9-28.1,74-41.4C256.1,61.5,274,70.2,289,79.2z"/>
+           <g>
+             <path fill="#333333" d="M158.9,95.6c0.8-0.6,1.5-1.2,2.2-1.7C160.4,94.5,159.6,95.1,158.9,95.6z"/>
+             <path fill="#333333" d="M157.8,96.5c-0.5-0.6-0.4-1.5,0.2-2l0,0c0.7-0.6,1.5-1.2,2.2-1.8l0,0c0,0,0,0,0.1,0l0,0l0,0l0,0l0,0l0,0
+               l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c0.4-0.2,0.8-0.2,1.1-0.1l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0
+               l0,0l0,0c0,0,0,0,0.1,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c0,0,0,0,0,0.1l0,0
+               c0.2,0.3,0.3,0.6,0.3,1l0,0l0,0l0,0c0,0.4-0.2,0.7-0.5,0.9l0,0c-0.1,0.1-0.2,0.2-0.3,0.3l0,0c-0.6,0.5-1.3,1-1.9,1.5l0,0
+               l-0.9-1.1l0.9,1.1c-0.3,0.2-0.6,0.3-0.9,0.3l0,0C158.5,97,158.1,96.9,157.8,96.5L157.8,96.5z"/>
+           </g>
+         </g>
+       </g>
+       <path fill="#232323" d="M241.2,276.8c0,0,54.5,100.7,3.9,105.1"/>
+       <path fill="#333333" d="M158.7,276.8c0,0-54.5,100.7-3.9,105.1"/>
+       <path fill="#333333" d="M199.4,276.8H241c0,0,43.8,128.4-12,127.7h-29.6"/>
+       <path fill="#4D4D4D" d="M200.1,276.8h-41.3c0,0-43.8,128.4,12,127.7h29.4"/>
+       <path fill="#333333" d="M265.1,65.2c0,0,43-15.3,48.9-13.1c5.8,2.2,13.9,25.5,0,48.2"/>
+       <path fill="#232323" d="M287.7,69.5c0,0,36.5-17.5,25.5,17.5"/>
+       <path fill="#333333" d="M199.3,278.6c5.2-0.7,161.4,11.2,151.9-109S199.3,47,199.3,47"/>
+       <path fill="#4D4D4D" d="M134.8,64.4c0,0-43-15.3-48.9-13.1c-5.8,2.2-13.9,25.5,0,48.2"/>
+       <path fill="#333333" d="M114.4,68.8c0,0-36.5-17.5-25.5,17.5"/>
+       <path fill="#4D4D4D" d="M199.9,278.6c-5.2-0.7-161.4,11.2-151.9-109S199.9,47,199.9,47"/>
+       <g>
+         <g>
+           <g>
+             <defs>
+               <path id="SVGID_1_" d="M245.2,228.4c0.4,15.3-18.4,22.6-46.5,22.6s-42.3-7.9-43.6-23.1c-1.8-21,15.3-18.7,43.4-18.7
+                 C226.5,209.2,244.6,207.4,245.2,228.4z"/>
+             </defs>
+             <clipPath id="SVGID_2_">
+               <use xlink:href="#SVGID_1_"  overflow="visible"/>
+             </clipPath>
+             <path clip-path="url(#SVGID_2_)" fill="#1E1E1E" d="M245.2,228.4c0.4,15.3-18.4,22.6-46.5,22.6s-42.3-7.9-43.6-23.1
+               c-1.8-21,15.3-18.7,43.4-18.7C226.5,209.2,244.6,207.4,245.2,228.4z"/>
+           </g>
+         </g>
+         <g>
+           <g>
+             <defs>
+               <path id="SVGID_3_" d="M245.2,228.4c0.4,15.3-18.4,22.6-46.5,22.6s-42.3-7.9-43.6-23.1c-1.8-21,15.3-18.7,43.4-18.7
+                 C226.5,209.2,244.6,207.4,245.2,228.4z"/>
+             </defs>
+             <clipPath id="SVGID_4_">
+               <use xlink:href="#SVGID_3_"  overflow="visible"/>
+             </clipPath>
+             <path clip-path="url(#SVGID_4_)" fill="#F05B61" d="M159.4,250.1c-0.3-13.3,16-19.6,40.3-19.6s36.6,6.8,37.8,20
+               c1.6,18.2-13.2,16.2-37.6,16.2C175.6,266.7,159.9,268.3,159.4,250.1z"/>
+           </g>
+         </g>
+       </g>
+       <path fill="#333333" d="M209.4,398c-2.5,6.3-4.6,12.7-4.9,19.5c-0.5,9.5,2,18.9,5.2,27.7c1.7,4.6,12.8,1.7,11.2-2.8
+         c-2.9-8.1-5.3-16.6-5.1-25.2c0.2-6.3,2-12.3,4.4-18.1c2.2-5.5-8.1-5.3-9.8-1.1H209.4z"/>
+       <path fill="#4D4D4D" d="M194.2,396.7c-2.9,15.4-8.3,33-0.3,47.8c1.3,2.4-3.7,2.9-4.9,3.1c-2.8,0.3-6.2-0.9-7.7-3.5
+         c-8.5-15.7,0.2-35.5,3.4-52C185.1,389.9,194.8,393.4,194.2,396.7z"/>
+       <path fill="#1E1E1E" d="M212.1,167.6c-2.7-5.2-22.5-5.5-24.6,0c-1.3,3.6,7.6,11,12.1,10.8C204.2,178.1,213.7,170.7,212.1,167.6z"/>
+       <path fill="#1E1E1E" d="M230.5,136.4c3.4-6,6.5-9.9,9.2-12.1l0,0c2.7-2.3,4.9-2.9,6.8-2.9l0,0c3,0,5.9,2,8.3,4.7l0,0
+         c2.4,2.7,4.1,5.8,4.6,7l0,0c0.2,0.3,0.2,0.5,0.2,0.5l0,0l0,0c0.6,1.4,2.3,2.1,3.8,1.5l0,0c1.4-0.6,2.1-2.3,1.5-3.8l0,0
+         c-0.1-0.2-3.5-8.3-10.3-13l0,0c-2.3-1.5-5-2.7-8.2-2.7l0,0c-3.4,0-7,1.4-10.4,4.2l0,0c-3.5,2.9-7,7.3-10.5,13.8l0,0
+         c-0.8,1.4-0.3,3.1,1.1,3.9l0,0c0.4,0.2,0.9,0.4,1.4,0.4l0,0C229,137.9,230,137.3,230.5,136.4L230.5,136.4z"/>
+       <path fill="#1E1E1E" d="M140.3,136.4c3.4-6,6.5-9.9,9.2-12.1l0,0c2.7-2.3,4.9-2.9,6.8-2.9l0,0c3,0,5.9,2,8.3,4.7l0,0
+         c2.4,2.7,4.1,5.8,4.6,7l0,0c0.2,0.3,0.2,0.5,0.2,0.5l0,0l0,0c0.6,1.4,2.3,2.1,3.8,1.5l0,0c1.4-0.6,2.1-2.3,1.5-3.8l0,0
+         c-0.1-0.2-3.5-8.3-10.3-13l0,0c-2.3-1.5-5-2.7-8.2-2.7l0,0c-3.4,0-7,1.4-10.4,4.2l0,0c-3.5,2.9-7,7.3-10.5,13.8l0,0
+         c-0.8,1.4-0.3,3.1,1.1,3.9l0,0c0.4,0.2,0.9,0.4,1.4,0.4l0,0C138.7,137.9,139.7,137.3,140.3,136.4L140.3,136.4z"/>
+       <path fill="#333333" d="M176.8,290.6c0,0,9.5,4.4,23.3,5.1v94.9C200.1,390.6,143.9,397.1,176.8,290.6z"/>
+       <path fill="#232323" d="M223.5,290.6c0,0-9.5,4.4-23.3,5.1v94.9C200.1,390.6,256.3,397.1,223.5,290.6z"/>
+       <g>
+         <g>
+           <path fill="#4D4D4D" d="M94.8,97.2L94.8,97.2L94.8,97.2C94.7,97.3,94.7,97.2,94.8,97.2z"/>
+           <path fill="#4D4D4D" d="M78.2,227.4L78.2,227.4C67,211,37.5,199.3,37.5,199.3l9.1-10.4c0,0-33.9-45.1-25.7-53.3
+             c8.2-8.2,25.2,17.4,25.2,17.4s-21.1-44-17-48.2c4-4,37.9,27.3,63.8-5.3c-14.5,18.5-28.1,42.9-41.4,74
+             C60.5,194.5,69.3,212.4,78.2,227.4z"/>
+           <g>
+             <path fill="#4D4D4D" d="M94.7,97.3c-0.6,0.8-1.2,1.5-1.7,2.2C93.5,98.8,94.1,98,94.7,97.3z"/>
+             <path fill="#4D4D4D" d="M95.5,96.2c-0.6-0.5-1.5-0.4-2,0.2l0,0c-0.6,0.7-1.2,1.5-1.8,2.2l0,0c0,0,0,0,0,0.1l0,0l0,0l0,0l0,0l0,0
+               l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c-0.2,0.4-0.2,0.8-0.1,1.1l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0
+               l0,0l0,0l0,0c0,0,0,0,0,0.1l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c0,0,0,0,0.1,0l0,0
+               c0.3,0.2,0.6,0.3,1,0.3l0,0l0,0l0,0c0.4,0,0.7-0.2,0.9-0.5l0,0c0.1-0.1,0.2-0.2,0.3-0.3l0,0c0.5-0.6,1-1.3,1.5-1.9l0,0l-1.1-0.9
+               l1.1,0.9c0.2-0.3,0.3-0.6,0.3-0.9l0,0C96.1,96.9,95.9,96.5,95.5,96.2L95.5,96.2z"/>
+           </g>
+         </g>
+       </g>
+       <g>
+         <g>
+           <path fill="#333333" d="M302.8,99.1L302.8,99.1l0.1,0.1C302.8,99.1,302.8,99.1,302.8,99.1z"/>
+           <path fill="#333333" d="M319.3,229.3L319.3,229.3c11.3-16.4,40.7-28.1,40.7-28.1l-9.1-10.4c0,0,34.6,3,26.4-5.2s-26-30.7-26-30.7
+             s21.9,4.1,17.8,0c-4-4-38.6-20.8-64.5-53.5c14.5,18.5,28.1,42.9,41.4,74C337,196.4,328.3,214.3,319.3,229.3z"/>
+           <g>
+             <path fill="#333333" d="M302.9,99.2c0.6,0.8,1.2,1.5,1.7,2.2C304,100.7,303.5,99.9,302.9,99.2z"/>
+             <path fill="#333333" d="M302,98.1c0.6-0.5,1.5-0.4,2,0.2l0,0c0.6,0.7,1.2,1.5,1.8,2.2l0,0c0,0,0,0,0,0.1l0,0l0,0l0,0l0,0l0,0l0,0
+               l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c0.2,0.4,0.2,0.8,0.1,1.1l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0
+               l0,0c0,0,0,0,0,0.1l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0c0,0,0,0-0.1,0l0,0
+               c-0.3,0.2-0.6,0.3-1,0.3l0,0l0,0l0,0c-0.4,0-0.7-0.2-0.9-0.5l0,0c-0.1-0.1-0.2-0.2-0.3-0.3l0,0c-0.5-0.6-1-1.3-1.5-1.9l0,0
+               l1.1-0.9l-1.1,0.9c-0.2-0.3-0.3-0.6-0.3-0.9l0,0C301.5,98.8,301.6,98.4,302,98.1L302,98.1z"/>
+           </g>
+         </g>
+       </g>
+       </svg>
+     </div><!-- /#cat-->
+
+  
+    
+
+  </div>
 
 
 </body>
 </html>
 
+<script>
+
+var tweet_div =  document.getElementsByClassName("tweet");
+
+var csv_div =  document.getElementsByClassName("csv");
+
+
+display_tweet = function() {
+
+  for(var i = 0; i < tweet_div.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    tweet_div[i].style.display = "block"; // depending on what you're doing
+  } 
+
+  for(var i = 0; i < csv_div.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    csv_div[i].style.display = "none"; // depending on what you're doing
+  } 
+}
+
+display_csv = function() {
+
+  for(var i = 0; i < tweet_div.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    tweet_div[i].style.display = "none"; // depending on what you're doing
+  } 
+
+  for(var i = 0; i < csv_div.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    csv_div[i].style.display = "block"; // depending on what you're doing
+  } 
+}
+
+
+
+var project_btn = document.getElementById("project");
+
+var links_btn = document.getElementById("links");
+
+var analyser_btn = document.getElementById("analyser")
+
+var team_btn = document.getElementById("team")
+
+var resources_btn = document.getElementById("resources")
+
+//var login_btn = document.getElementById("login")
+
+//console.log(links);
+
+var login = document.getElementsByClassName("login"); 
+//console.log(login);
+var links = document.getElementsByClassName("links"); 
+
+var project = document.getElementsByClassName("project"); 
+
+var team = document.getElementsByClassName("team"); 
+
+var analyser = document.getElementsByClassName("analyser"); 
+
+var resources = document.getElementsByClassName("resources"); 
+
+
+// Onglet links
+
+links_btn.onclick = function(){
+
+  for(var i = 0; i < login.length; i++){
+      //login[i].style.visibility = "hidden"; // or
+      login[i].style.display = "none"; // depending on what you're doing
+    }
+
+  for(var i = 0; i < project.length; i++){
+      //login[i].style.visibility = "hidden"; // or
+      project[i].style.display = "none"; // depending on what you're doing
+    }
+
+  for(var i = 0; i < analyser.length; i++){
+      //login[i].style.visibility = "hidden"; // or
+      analyser[i].style.display = "none"; // depending on what you're doing
+    }
+  
+    for(var i = 0; i < resources.length; i++){
+      //login[i].style.visibility = "hidden"; // or
+      resources[i].style.display = "none"; // depending on what you're doing
+    }
+    for(var i = 0; i < team.length; i++){
+      //login[i].style.visibility = "hidden"; // or
+      team[i].style.display = "none"; // depending on what you're doing
+    }
+
+    for(var i = 0; i < links.length; i++){
+      //login[i].style.visibility = "hidden"; // or
+      links[i].style.display = "block"; // depending on what you're doing
+    }
+ 
+}
+
+// Onglet Tweets Analyser
+
+analyser_btn.onclick = function(){
+
+for(var i = 0; i < links.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    links[i].style.display = "none"; // depending on what you're doing
+  }
+
+for(var i = 0; i < project.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    project[i].style.display = "none"; // depending on what you're doing
+  }
+
+for(var i = 0; i < login.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    login[i].style.display = "none"; // depending on what you're doing
+  }
+
+  for(var i = 0; i < team.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    team[i].style.display = "none"; // depending on what you're doing
+  }
+
+  for(var i = 0; i < resources.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    resources[i].style.display = "none"; // depending on what you're doing
+  }
+
+  for(var i = 0; i < analyser.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    analyser[i].style.display = "block"; // depending on what you're doing
+  }
+
+}
+
+// Onglet project
+
+
+project_btn.onclick = function(){
+
+for(var i = 0; i < team.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  team[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < resources.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  resources[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < login.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  login[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < analyser.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  analyser[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < links.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  links[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < project.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  console.log("salut");
+  project[i].style.display = "block"; // depending on what you're doing
+}
+
+}
+
+// Onglet team
+
+team_btn.onclick = function(){
+
+for(var i = 0; i < project.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  project[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < resources.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  resources[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < login.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  login[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < analyser.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  analyser[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < links.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  links[i].style.display = "none"; // depending on what you're doing
+}
+
+for(var i = 0; i < team.length; i++){
+  //login[i].style.visibility = "hidden"; // or
+  team[i].style.display = "block"; // depending on what you're doing
+}
+
+}
+
+
+// Onglet Resources
+
+resources_btn.onclick = function(){
+
+for(var i = 0; i < login.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    login[i].style.display = "none"; // depending on what you're doing
+  }
+
+for(var i = 0; i < project.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    project[i].style.display = "none"; // depending on what you're doing
+  }
+
+for(var i = 0; i < analyser.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    analyser[i].style.display = "none"; // depending on what you're doing
+  }
+
+  for(var i = 0; i < team.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    team[i].style.display = "none"; // depending on what you're doing
+  }
+  for(var i = 0; i < links.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    links[i].style.display = "none"; // depending on what you're doing
+  }
+
+  for(var i = 0; i < resources.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    resources[i].style.display = "block"; // depending on what you're doing
+  }
+
+}
+
+// UPLOADING CSV FILES
+/*
+//because read.csv is in utils
+ocpu.seturl("//public.opencpu.org/ocpu/library/utils/R")
+//actual handler
+$("#submitbutton").on("click", function(){
+    //arguments
+    var myheader = $("#header").val() == "true";
+    var myfile = $("#csvfile")[0].files[0];
+        
+    if(!myfile){
+        alert("No file selected.");
+        return;
+    }
+    //disable the button during upload
+    $("#submitbutton").attr("disabled", "disabled");
+    //perform the request
+    var req = ocpu.call("read.csv", {
+        "file" : myfile,
+        "header" : myheader
+    }, function(session){
+        session.getConsole(function(outtxt){
+            $("#output").text(outtxt); 
+        });
+    });
+        
+    //if R returns an error, alert the error message
+    req.fail(function(){
+        alert("Server error: " + req.responseText);
+    });
+    
+    //after request complete, re-enable the button 
+    req.always(function(){
+        $("#submitbutton").removeAttr("disabled")
+    });        
+});  
+*/
+
+// Onglet login
+/*
+login_btn.onclick = function(){
+  for(var i = 0; i < team.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    team[i].style.display = "none"; // depending on what you're doing
+  }
+  for(var i = 0; i < resources.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    resources[i].style.display = "none"; // depending on what you're doing
+  }
+  for(var i = 0; i < project.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    project[i].style.display = "none"; // depending on what you're doing
+  }
+  for(var i = 0; i < analyser.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    analyser[i].style.display = "none"; // depending on what you're doing
+  }
+  for(var i = 0; i < links.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    links[i].style.display = "none"; // depending on what you're doing
+  }
+  for(var i = 0; i < login.length; i++){
+    //login[i].style.visibility = "hidden"; // or
+    login[i].style.display = "block"; // depending on what you're doing
+  }
+}
+*/
+
+
+
+
+//console.log("toto_js")
+
+
+</script>
