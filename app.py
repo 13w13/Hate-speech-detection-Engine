@@ -116,7 +116,7 @@ app.logger.setLevel(logging.DEBUG)
 @app.route('/')
 def home():
     #print('Hello world!')
-    return render_template('index.html')
+    return render_template('index.html', prediction_text=None, status_prediction=False)
 
 #To use the predict button in our web-app
 @app.route('/predict',methods=['POST'])
@@ -127,17 +127,18 @@ def predict():
     # Input 
     # ##faire les memes operations de test que dans le notebook 
 
+
     prediction = "indetermined"
     prob_prediction = predict_words(tweet[0])
 
-    if prob_prediction >= 0.6: 
-        prediction = "Insult "
-    elif prob_prediction >= 0.4 and prob_prediction < 0.6: 
-        prediction = "Neutral "
+    if prob_prediction > 0.7: 
+        prediction = "Hate message"
+    elif prob_prediction > 0.5 and prob_prediction <= 0.7: 
+        prediction = "Offensive message"
     else:
-        prediction = "Non toxic "
+        prediction = "Neutral"
 
-    return render_template('predict.html', prediction_text='Is it an hate message? :{}'.format(prediction))
+    return render_template('index.html', prediction_text=prediction, status_prediction=True)
 
 @app.route('/predict_csv',methods=['POST'])
 def predict_csv():
@@ -165,7 +166,7 @@ def predict_csv_file():
     #output = "toto"
 
     resp = make_response(csvData.to_csv())
-    resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
+    resp.headers["Content-Disposition"] = "attachment; filename=your_prediction.csv"
     resp.headers["Content-Type"] = "text/csv"
 
     return resp
