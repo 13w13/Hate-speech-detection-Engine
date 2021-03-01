@@ -1465,7 +1465,9 @@ At the end, our hate speech analysor will give you back your csv file with an ad
           <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
           <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
           -->
-          <input type="text" name="fuel" placeholder="Enter the message ... "/>
+          <input type="text" name="fuel" id="tweet_text_area" 
+          placeholder="Enter the message ... " maxlength="300" required />
+          <div id="charactersRemaining">300 remaining characters</div>
           <br><br>
 
           <button type="submit" class="btn">Predict</button>
@@ -1474,15 +1476,16 @@ At the end, our hate speech analysor will give you back your csv file with an ad
         {% if prediction_text is none %}
           <p></p> 
         {% elif prediction_text == "Hate message" %}
-          <p>The tweet is : {{prediction_text}}</p>
+          <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
           <iframe src="https://giphy.com/embed/J2D7HjS6sOsnjSadcA" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         {% elif prediction_text == "Offensive message" %}
-          <p>The tweet is : {{prediction_text}}</p>
+          <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
           <iframe src="https://giphy.com/embed/erRZ7cJmveDL2" width="480" height="289" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         {% elif prediction_text == "Neutral" %}
-          <p>The tweet is : {{prediction_text}}</p>
+          <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
             <iframe src="https://giphy.com/embed/cJSdHSJ4yhmltD9epc" width="229" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-          
+        {% else %}
+          <p>The tweet "{{tweet_text}}" is in : {{prediction_text}}</p>        
         {% endif %}
       
 
@@ -1536,23 +1539,27 @@ At the end, our hate speech analysor will give you back your csv file with an ad
           <input type="text" name="enginesize" placeholder="Engine Size" required="required" />
           <input type="text" name="cylinders" placeholder="Cylinders" required="required" />
           -->
-          <input type="text" name="fuel" placeholder="Enter the message ... "/>
+          <input type="text" name="fuel" id="tweet_text_area" 
+          placeholder="Enter the message ... " maxlength="300" required />
+          <div id="charactersRemaining">300 remaining characters</div>
 
           <button type="submit" class="btn">Predict</button>
         </form>
         <!-- {{ prediction_text }} -->
+        
         {% if prediction_text is none %}
-          <p></p> 
+         <p></p> 
         {% elif prediction_text == "Hate message" %}
-          <p>The tweet is : {{prediction_text}}</p>
-          <iframe src="https://giphy.com/embed/J2D7HjS6sOsnjSadcA" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+         <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
+         <iframe src="https://giphy.com/embed/J2D7HjS6sOsnjSadcA" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         {% elif prediction_text == "Offensive message" %}
-          <p>The tweet is : {{prediction_text}}</p>
-          <iframe src="https://giphy.com/embed/erRZ7cJmveDL2" width="480" height="289" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+         <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
+         <iframe src="https://giphy.com/embed/erRZ7cJmveDL2" width="480" height="289" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         {% elif prediction_text == "Neutral" %}
-          <p>The tweet is : {{prediction_text}}</p>
-            <iframe src="https://giphy.com/embed/cJSdHSJ4yhmltD9epc" width="229" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-          
+         <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
+           <iframe src="https://giphy.com/embed/cJSdHSJ4yhmltD9epc" width="229" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        {% else %}
+         <p>The tweet "{{tweet_text}}" is in : {{prediction_text}}</p>        
         {% endif %}
 
     
@@ -1576,9 +1583,22 @@ At the end, our hate speech analysor will give you back your csv file with an ad
 
 <script>
 
+var tweet_text_area; 
+
+function countCharacters(e) {                                    
+  var textEntered, countRemaining, counter;          
+  textEntered = document.getElementById('tweet_text_area').value;  
+  counter = (300 - (textEntered.length));
+  countRemaining = document.getElementById('charactersRemaining'); 
+  countRemaining.textContent = counter + ' remaining characters';  
+}
+
+tweet_text_area = document.getElementById('tweet_text_area');                   
+tweet_text_area.addEventListener('keyup', countCharacters, false);
+
 var tweet_div =  document.getElementsByClassName("tweet");
 
-var csv_div =  document.getElementsByClassName("csv");
+var csv_div =  document.getElementsByClassName("csv"); 
 
 
 display_tweet = function() {

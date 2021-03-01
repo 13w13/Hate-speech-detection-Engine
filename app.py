@@ -10,6 +10,7 @@ from torch.utils.data import DataLoader, TensorDataset
 from tqdm import tqdm
 from pytorch_pretrained_bert import BertTokenizer, BertForSequenceClassification, BertAdam, BertConfig
 import logging
+import langid
 
 #Initialize the flask App
 #app = Flask(__name__)
@@ -129,7 +130,10 @@ def predict():
 
 
     prediction = "indetermined"
-    prob_prediction = predict_words(tweet[0])
+    if(langid.classify(tweet[0])[0] == 'en'):
+        prob_prediction = predict_words(tweet[0])
+    else:
+        return render_template('index.html', tweet_text=tweet[0], prediction_text=langid.classify(tweet[0])[0], status_prediction=True) 
 
     if prob_prediction > 0.7: 
         prediction = "Hate message"
@@ -138,7 +142,7 @@ def predict():
     else:
         prediction = "Neutral"
 
-    return render_template('index.html', prediction_text=prediction, status_prediction=True)
+    return render_template('index.html', tweet_text=tweet[0], prediction_text=prediction, status_prediction=True)
 
 @app.route('/predict_csv',methods=['POST'])
 def predict_csv():
@@ -154,10 +158,20 @@ def predict_csv_file():
     csvData = pd.read_csv(uploaded_file, header=None)
     csvData = csvData.rename(columns={0:'tweet'})
     csvData['pred'] = None
+    csvData['classif'] = None
     
     for i in range(len(csvData)): 
         #csvData['pred'][i] = 0.5
         csvData['pred'][i] = predict_words(csvData.loc[i].values[0])
+
+        if csvData['pred'][i] > 0.7: 
+            csvData['classif'][i] = "Hate message"
+        elif csvData['pred'][i] > 0.5 and csvData['pred'][i] <= 0.7: 
+            csvData['classif'][i] = "Offensive message"
+        else:
+            csvData['classif'][i] = "Neutral"
+
+
         # #print(tweet_df.loc[i].values[0] + " " + str(predict_words(tweet_df.loc[i].values[0])))
 
     #app.logger.info(csvData)
