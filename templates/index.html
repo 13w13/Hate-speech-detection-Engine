@@ -1129,6 +1129,17 @@ At the end, our hate speech analysor will give you back your csv file with an ad
 
   <div class="resources" style="display:none">
 
+    <p>• Link to our ppt presentation: </p>
+    
+    <a target="_blank" href=" https://docs.google.com/presentation/d/1cuQPfZngZbXkZgttcKd3RXUC_WADlQWnxMw8j-VRbTY/edit?usp=sharing">
+    <img
+    src=" https://img.icons8.com/clouds/2x/google-slides.png"
+      alt="Google_slide_logo"
+      width="100" 
+      height="100"
+      >
+    </a>
+
     <p> • More understanding about the App environment:  </p> 
 
     <a target="_blank" href="https://palletsprojects.com/p/flask/">
@@ -1166,7 +1177,7 @@ At the end, our hate speech analysor will give you back your csv file with an ad
 
     
     <p> • If you want more details about the app checkout our Github project:
-      <br> <br>
+      <br>
       
     <a target="_blank" href="https://github.com/13w13/Hate-speech-detection-Engine">
       <img 
@@ -1178,7 +1189,7 @@ At the end, our hate speech analysor will give you back your csv file with an ad
     
     </a>
 
-    
+    <br> <br> <br> <br> 
 
   </div>
 
@@ -1478,12 +1489,15 @@ At the end, our hate speech analysor will give you back your csv file with an ad
         {% elif prediction_text == "Hate message" %}
           <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
           <iframe src="https://giphy.com/embed/J2D7HjS6sOsnjSadcA" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        {% elif prediction_text == "Offensive message" %}
+          <br> <br> <br> <br>
+          {% elif prediction_text == "Offensive message" %}
           <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
-          <iframe src="https://giphy.com/embed/erRZ7cJmveDL2" width="480" height="289" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        {% elif prediction_text == "Neutral" %}
+          <iframe src="https://giphy.com/embed/6qdkSaKx2MfMA" width="480" height="302" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+          <br> <br> <br> <br>
+          {% elif prediction_text == "Neutral" %}
           <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
             <iframe src="https://giphy.com/embed/cJSdHSJ4yhmltD9epc" width="229" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <br> <br> <br> <br>
         {% else %}
           <p>The tweet "{{tweet_text}}" is in : {{prediction_text}}</p>        
         {% endif %}
@@ -1552,13 +1566,16 @@ At the end, our hate speech analysor will give you back your csv file with an ad
         {% elif prediction_text == "Hate message" %}
          <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
          <iframe src="https://giphy.com/embed/J2D7HjS6sOsnjSadcA" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        {% elif prediction_text == "Offensive message" %}
+         <br> <br> <br> <br>
+         {% elif prediction_text == "Offensive message" %}
          <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
-         <iframe src="https://giphy.com/embed/erRZ7cJmveDL2" width="480" height="289" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+         <iframe src="https://giphy.com/embed/6qdkSaKx2MfMA" width="480" height="302" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+         <br> <br> <br> <br>
         {% elif prediction_text == "Neutral" %}
          <p>The tweet "{{tweet_text}}" is : {{prediction_text}}</p>
            <iframe src="https://giphy.com/embed/cJSdHSJ4yhmltD9epc" width="229" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        {% else %}
+           <br> <br> <br> <br>
+           {% else %}
          <p>The tweet "{{tweet_text}}" is in : {{prediction_text}}</p>        
         {% endif %}
 
