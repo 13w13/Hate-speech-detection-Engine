@@ -130,10 +130,13 @@ def predict():
 
 
     prediction = "indetermined"
+    prob_prediction = predict_words(tweet[0])
+    '''
     if(langid.classify(tweet[0])[0] == 'en'):
         prob_prediction = predict_words(tweet[0])
     else:
         return render_template('index.html', tweet_text=tweet[0], prediction_text=langid.classify(tweet[0])[0], status_prediction=True) 
+    '''   
 
     if prob_prediction > 0.7: 
         prediction = "Hate message"
@@ -187,7 +190,7 @@ def predict_csv_file():
 
 if __name__ == '__main__':
     app.debug = True
-    #port = int(os.environ.get("PORT", 5000))
-    #app.run(host='127.0.0.1', port=port, debug=True)
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='127.0.0.1', port=port, debug=True)
+    #port = int(os.environ.get("PORT", 5000))
+    #app.run(host='0.0.0.0', port=port, debug=True)
