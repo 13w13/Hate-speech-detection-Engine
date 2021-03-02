@@ -67,33 +67,38 @@ body {
 }
 
 /* The about link: 20px from the top with a green background */
-#project {
+#home {
   top: 10px;
+  background-color:rgb(31, 215, 228); /* Red */
+}
+
+#project {
+  top: 80px;
   background-color: #ee1818; /* Red */
 }
 
 #team {
-  top: 80px;
+  top: 150px;
   background-color: #f3a515; /* Orange */
 }
 
 #analyser {
-  top: 140px;
+  top: 220px;
   background-color: #ebe70b; /* Yellow */
 }
 
 #resources {
-  top: 200px;
+  top: 290px;
   background-color: rgb(40, 219, 55) /* Green */
 }
 
 #links {
-  top: 260px;
+  top: 360px;
   background-color: rgb(40, 58, 219) /* Blue */
 }
 
 #tbs {
-  top: 320px;
+  top: 430px;
   background-color: rgb(207, 143, 233) /* Purple */
   
   
@@ -940,6 +945,11 @@ position: absolute;
   line-height: 52px;
 }
 
+.resources p {
+  font-size: 14px;
+  text-align: justify;
+}
+
 /* CSS Footer */
 footer{
   background-color: #00acee ;
@@ -981,22 +991,6 @@ footer{
 
 }
 
-.resources {
-	position: absolute;
-	top: 15%;
-	left: 40%;
-	margin: -100px 0 0 -100px;
-	width:800px;
-	height:100px;
-  text-align: justify;
-  font-size: 18px;
-}
-
-.resources p {
-font-size: 14px;
-text-align: justify;
-}
-
 .cot-a-cot {
   display: flex; 
 }
@@ -1022,6 +1016,7 @@ text-align: justify;
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- <link re
   l="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
 
@@ -1034,6 +1029,23 @@ text-align: justify;
   
 
   <div id="mySidenav" class="sidenav" >
+    <a id="home" href="/">
+      <i class="fa fa-home"></i>
+      <!--
+      <img
+      class="logo"
+      src= ""
+      alt="image" 
+      width="100" 
+      height="100">
+      -->
+
+      <!--
+      <form action="">
+        <button class="btn"><i class="fa fa-home"></i></button>
+      </form>
+    -->
+    </a>
     <a id="project">The Project</a>
     <a id="team">The Team</a>
     <a id="analyser">Tweets Analyser</a>
@@ -1207,6 +1219,8 @@ At the end, our hate speech analysor will give you back your csv file with an ad
       <img 
       src="https://miro.medium.com/max/1000/1*nFxyDwJ2DEH1G5PMKPMj1g.png" 
       alt="Flask Web Development"
+      width="800" 
+      height="300"
       >
     </a>
     <br> 
@@ -1245,6 +1259,8 @@ At the end, our hate speech analysor will give you back your csv file with an ad
     <a>
       <img 
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcf0hgPDxoyKBUCOOybG33CbZWObgOquljUg&usqp=CAU" 
+      width="800" 
+      height="200"
       >
     </a>
     <br> 
