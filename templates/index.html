@@ -945,8 +945,6 @@ position: absolute;
   
 }
 
-
-
 .resources p {
   font-size: 16px;
   text-align: justify;
@@ -1023,9 +1021,16 @@ footer{
 <!-- <link re
   l="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3W0F5PL95"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
   
-
+    gtag('config', 'G-Z3W0F5PL95');
+  </script>
 </head>
+
 
 <body>
 
@@ -1328,13 +1333,14 @@ At the end, our hate speech analysor will give you back your csv file with an ad
     •	Transfer Learning in NLP = Pre-Training and Fine-Tuning
 
     <br> <br>
+    <a target="_blank" href="https://cdn.analyticsvidhya.com/wp-content/uploads/2019/09/bert_pipeline2.png">
     <img 
     src="https://cdn.analyticsvidhya.com/wp-content/uploads/2019/09/bert_pipeline2.png" 
     alt="Bert_preprocessing"
     width="600" 
     height="190"
     >
-    
+    </a>
     </p>
 
     <h3> BERT Architecture - Transformers</h3>
@@ -1385,6 +1391,16 @@ At the end, our hate speech analysor will give you back your csv file with an ad
       width="600" 
       height="331"
       >
+
+      <br><br> 
+
+      <a target="_blank" href="https://www.analyticsvidhya.com/blog/2019/09/demystifying-bert-groundbreaking-nlp-framework/">
+        Source1 : analyticsvidhya
+      </a>
+      <br>
+      <a target="_blank" href="http://jalammar.github.io/illustrated-bert/">
+        Source2 : jalammar
+      </a>
       
       <br> <br> <br> <br><br><br>
     
@@ -1705,6 +1721,8 @@ At the end, our hate speech analysor will give you back your csv file with an ad
 </html>
 
 <script>
+
+///////////////////////
 
 var tweet_text_area; 
 
