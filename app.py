@@ -10,7 +10,8 @@ from torch.utils.data import DataLoader, TensorDataset
 from tqdm import tqdm
 from pytorch_pretrained_bert import BertTokenizer, BertForSequenceClassification, BertAdam, BertConfig
 import logging
-import langid
+#import langid
+from textblob import TextBlob
 
 #Initialize the flask App
 #app = Flask(__name__)
@@ -130,14 +131,15 @@ def predict():
 
 
     prediction = "indetermined"
-    prob_prediction = predict_words(tweet[0])
-    '''
-    if(langid.classify(tweet[0])[0] == 'en'):
+    #prob_prediction = predict_words(tweet[0])
+    
+    if((len(tweet[0]) > 2) and (TextBlob(tweet[0]).detect_language() == 'en')):
+        prob_prediction = predict_words(tweet[0])
+    elif(len(tweet[0]) <= 2):
         prob_prediction = predict_words(tweet[0])
     else:
-        return render_template('index.html', tweet_text=tweet[0], prediction_text=langid.classify(tweet[0])[0], status_prediction=True) 
-    '''   
-
+        return render_template('index.html', tweet_text=tweet[0], prediction_text=TextBlob(tweet[0]).detect_language(), status_prediction=True) 
+       
     if prob_prediction > 0.7: 
         prediction = "Hate message"
     elif prob_prediction > 0.5 and prob_prediction <= 0.7: 
