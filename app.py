@@ -174,7 +174,7 @@ def predict_csv_file():
         elif csvData['pred'][i] > 0.5 and csvData['pred'][i] <= 0.7: 
             csvData['classif'][i] = "Offensive message"
         else:
-            csvData['classif'][i] = "Neutral"
+            csvData['classif'][i] = "Neither"
 
 
         # #print(tweet_df.loc[i].values[0] + " " + str(predict_words(tweet_df.loc[i].values[0])))
