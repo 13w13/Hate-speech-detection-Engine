@@ -37,6 +37,6 @@ Toxic Comment Classification Challenge
 1 800 000 comments from the Civil Comments labelled with Jigsaw
 A toxic label ranging from 0 to 1 for each comment 
 
-###Planning 
+### Planning 
 
 Research work on models  → Development of our model→ Web programming → Deployment 
