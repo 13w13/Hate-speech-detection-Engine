@@ -23,7 +23,7 @@ Development of incitement to hatred and violence on the platforms
 
 
 
-![Hate](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.csmonitor.com%2FTechnology%2F2016%2F0720%2FCan-verified-Twitter-accounts-help-curb-hate-speech&psig=AOvVaw0qHWZPubPBAHtwOcHOvqUN&ust=1614881122718000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCID4lczblO8CFQAAAAAdAAAAABAc)
+![Hate](https://images.csmonitor.com/csm/2016/07/993009_1_0720-Twitter_standard.png?alias=standard_900x600nc)
 
 ### Team
 
