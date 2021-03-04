@@ -4,8 +4,10 @@ Alexandra Amiens, Julieva Cohen, Antoine Settelen, Edgar Jullien, Simon Weiss
 
 ~2 weeks development  
 
-The Tweet Analyser is only working for presentation made on 04.03.21 due to free limitation on dyno type of Heroku. 
-It is possible to activate it on demand. 
+The Tweet Analyser is only working for presentation made on 04.03.21 due to the free limitation on dyno type of Heroku.   
+
+It is possible to **activate it** on demand.   
+
 Check the demo [here](https://twitter-toxic-detector.herokuapp.com/).
 
 
